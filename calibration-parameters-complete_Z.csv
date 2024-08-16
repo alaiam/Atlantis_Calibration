@@ -1,0 +1,4 @@
+names,paropt,parmin,parmax,parphase
+ZS_mQ_factor,1,0.5,2,1
+ZM_mQ_factor,1,0.5,2,1
+ZL_mQ_factor,1,0.5,2,1

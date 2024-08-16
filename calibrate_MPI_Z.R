@@ -2,6 +2,7 @@ rm(list=ls())
 
 library(calibrar)
 library(stringr)
+library(here)
 # #set config
 # usethis::use_git_config(user.name = "alaiam", user.email = "alaia.morell@gmail.com")
 # 
@@ -14,12 +15,11 @@ library(stringr)
 require("atlantis2ls")
 require("calibrar")
 # devtools::install_github("alaiam/atlantis2ls")
-# Need to load the doSNOW package, which is installed in my HOME: /home1/datahome/nbarrier/libs/R/lib
 require("doSNOW")
 
-setwd("/home/atlantis/psatlantismodel/Calib_PSA")
+setwd("/home/atlantis/psatlantismodel/Atlantis_Calibration")
 
-source("runModel_Atlantis.R")
+source("runModel_Atlantis_Z.R")
 
 # creates a user defined likelihood function
 minmaxt = function(obs, sim) {
@@ -29,14 +29,14 @@ minmaxt = function(obs, sim) {
 }
 
 # reads calibration informations
-setup = calibration_setup(file="calibration_settings.csv") 
+setup = calibration_setup(file="calibration_settings_Z.csv") 
 observed = calibration_data(setup = setup,
                            path=".", 
                            file = NULL, 
                            sep = ",")
 
 # load calibration parameters
-forcing = read.csv(file="calibration-parameters-complete.csv", 
+forcing = read.csv(file="calibration-parameters-complete_Z.csv", 
                      header=TRUE, 
                      sep=",", 
                      row.names=1)
@@ -52,11 +52,11 @@ objfn = calibration_objFn(model=runModel,
                           names=row.names(forcing))
 
 control = list()
-control$maxit = c(10)   # maximum number of generations (former gen.max parameter)
-control$maxgen = c(10)   # maximum number of generations (former gen.max parameter)
-control$master = "/home/atlantis/psatlantismodel/Calib_PSA/master/"   # directory that will be copied
-control$run = "/home/atlantis/psatlantismodel/Calib_PSA/RUN"   # run directory
-control$restart.file = "/home/atlantis/psatlantismodel/Calib_PSA/restart_file"   # name of the restart file
+control$maxit = c(3)   # maximum number of generations (former gen.max parameter)
+control$maxgen = c(3)   # maximum number of generations (former gen.max parameter)
+control$master = "/home/atlantis/psatlantismodel/Atlantis_Calibration/master/"   # directory that will be copied
+control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run directory
+control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
 control$REPORT = 1    # number of generations to run before saving a restart
 control$parallel = TRUE
 control$nCores = 16
