@@ -52,15 +52,15 @@ objfn = calibration_objFn(model=runModel,
                           names=row.names(forcing))
 
 control = list()
-control$maxit = c(3)   # maximum number of generations (former gen.max parameter)
-control$maxgen = c(3)   # maximum number of generations (former gen.max parameter)
+control$maxit = c(12)   # maximum number of generations (former gen.max parameter)
+control$maxgen = c(12)   # maximum number of generations (former gen.max parameter)
 control$master = "/home/atlantis/psatlantismodel/Atlantis_Calibration/master/"   # directory that will be copied
 control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run directory
 control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
 control$REPORT = 1    # number of generations to run before saving a restart
 control$parallel = TRUE
-control$nCores = 16
-control$popsize = 16   # population  size (former seed parameter)
+control$nCores = 48
+control$popsize = 48   # population  size (former seed parameter)
 control$trace = 3 #global fitness and partial fitness
 
 # call the RMPI/Snow make cluster (note here that there are no arguments!)
@@ -90,5 +90,15 @@ stopCluster(cl)
 
 
 # readRDS('restart_file.restart')
-readRDS('restart_file.results')
+a <- readRDS('restart_file.results')
+par(mfrow = c(1,2))
+plot(0:12, c(6,a$trace$fitness), type = "l", lwd = 2, xlab = "Generations", ylab = "Objective function value")
+plot(0:12, c(1,a$trace$par[,1]), type = "l", col = "darkorange", ylim = c(0.2,1), lwd = 2, xlab = "Generations", ylab = "Parameter factor")
+lines(0:12, c(1,a$trace$par[,2]), col = "red", lwd = 2)
+lines(0:12, c(1,a$trace$par[,3]), col = "darkred", lwd = 2)
+legend("bottomright", 
+       legend = c("Parameter 1 (mQ_SZ)", "Parameter 2 (mQ_MZ)", "Parameter 3 (mQ_LZ)"), 
+       col = c("darkorange", "red", "darkred"), 
+       lwd = 2, 
+       bty = "n")
 

@@ -15,7 +15,7 @@ runModel  = function(param, names, ...) {
     write.table(param, file="calibration-parameters.csv", sep=",",
                 col.names=FALSE, quote=FALSE)
     mq.factor = grep(x=names, pattern="mQ")
-    bio.prm = "AMPSbioparam_mv1_2022.prm"
+    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
     bio.lines = readLines(bio.prm)
 
     edit_param_mq_sp = function(bio.lines, factor, species){
@@ -61,8 +61,8 @@ runModel  = function(param, names, ...) {
     # read Atlantis outputs
     path = "outputFolder"
     prefix = "AMPS"
-    bio.prm = "AMPSbioparam_mv1_2022.prm"
-    fg.file <- "PugetSoundAtlantisFunctionalGroups_salmon_rectype4.csv"
+    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
+    fg.file <- "PugetSoundAtlantisFunctionalGroups_2024.csv"
     outputs <- read_atlantis(path = path, prefix = prefix, fg.file = fg.file)
 
     # extract the biomass, abundance, waa variables

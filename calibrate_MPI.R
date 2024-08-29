@@ -17,7 +17,7 @@ require("calibrar")
 # Need to load the doSNOW package, which is installed in my HOME: /home1/datahome/nbarrier/libs/R/lib
 require("doSNOW")
 
-setwd("/home/atlantis/psatlantismodel/Calib_PSA")
+setwd("/home/atlantis/psatlantismodel/Atlantis_Calibration/")
 
 source("runModel_Atlantis.R")
 
@@ -52,19 +52,19 @@ objfn = calibration_objFn(model=runModel,
                           names=row.names(forcing))
 
 control = list()
-control$maxit = c(10)   # maximum number of generations (former gen.max parameter)
-control$maxgen = c(10)   # maximum number of generations (former gen.max parameter)
-control$master = "/home/atlantis/psatlantismodel/Calib_PSA/master/"   # directory that will be copied
-control$run = "/home/atlantis/psatlantismodel/Calib_PSA/RUN"   # run directory
-control$restart.file = "/home/atlantis/psatlantismodel/Calib_PSA/restart_file"   # name of the restart file
+control$maxit = c(4)   # maximum number of generations (former gen.max parameter)
+control$maxgen = c(4)   # maximum number of generations (former gen.max parameter)
+control$master = "/home/atlantis/psatlantismodel/Atlantis_Calibration/master/"   # directory that will be copied
+control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run directory
+control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
 control$REPORT = 1    # number of generations to run before saving a restart
 control$parallel = TRUE
-control$nCores = 16
-control$popsize = 16   # population  size (former seed parameter)
+control$nCores = 14
+control$popsize = 14  # population  size (former seed parameter)
 control$trace = 3 #global fitness and partial fitness
 
 # call the RMPI/Snow make cluster (note here that there are no arguments!)
-NumberOfCluster <- detectCores()  - 1
+NumberOfCluster <- detectCores()  - 2
 cl <-  makeCluster(NumberOfCluster)
 
 # call the registerDoSNOW function instead of the registerDoParallel

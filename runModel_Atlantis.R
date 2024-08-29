@@ -14,8 +14,8 @@ runModel  = function(param, names, ...) {
     write.table(param, file="calibration-parameters.csv", sep=",",
                 col.names=FALSE, quote=FALSE)
     mum.factor = grep(x=names, pattern="mum")
-    BHalpha.factor = grep(x=names, pattern="BHalpha")
-    bio.prm = "AMPSbioparam_mv1_2022.prm"
+    mq.factor = grep(x=names, pattern="mQ")
+    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
     bio.lines = readLines(bio.prm)
 
     for (i in 1:length(mum.factor)){
@@ -27,15 +27,30 @@ runModel  = function(param, names, ...) {
       bio.lines = edit_param_mum_sp(bio.lines, factor, species)
     }
 
-    for (i in 1:length(BHalpha.factor)){
-      species <- names[BHalpha.factor[i]]
-      factor  <- param[BHalpha.factor[i]]
-      species <- sub("BHalpha_", "", species)
-      species <- sub("_factor", "", species)
-
-      bio.lines = edit_param_BHalpha_sp(bio.lines, factor, species)
+    edit_param_mq_sp = function(bio.lines, factor, species){
+      
+      bio.lines = bio.lines
+      pattern = paste0(species,'_mQ')
+      bio.lines.id = grep(pattern,bio.lines)
+      bio.lines.vals1 = bio.lines[bio.lines.id]
+      if (length(bio.lines.vals1)==0) stop("The species does not have a mQ parameter")
+      
+      value <- as.numeric(unlist(strsplit(bio.lines.vals1, "\t"))[2])
+      if (is.na(value)) stop("The function is not ready yet to deal with mQ vector")
+      value <- value*factor
+      name <- unlist(strsplit(bio.lines.vals1, "\t"))[1]
+      new.line <- paste0(name, "\t", value)
+      bio.lines[bio.lines.id] <- new.line
+      
+      return(bio.lines)
     }
-
+    
+    for (i in 1:length(mq.factor)){
+      species <- names[mq.factor[i]]
+      factor  <- param[mq.factor[i]]
+      species <- sub("_mQ_factor", "", species)
+      bio.lines = edit_param_mq_sp(bio.lines, factor, species)
+    }
     writeLines(bio.lines, "bio.prm")
 
     #TODO: Improve biomass function
@@ -53,8 +68,8 @@ runModel  = function(param, names, ...) {
     # read Atlantis outputs
     path = "outputFolder"
     prefix = "AMPS"
-    bio.prm = "AMPSbioparam_mv1_2022.prm"
-    fg.file <- "PugetSoundAtlantisFunctionalGroups_salmon_rectype4.csv"
+    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
+    fg.file <- "PugetSoundAtlantisFunctionalGroups_2024.csv"
     outputs <- read_atlantis(path = path, prefix = prefix, fg.file = fg.file)
 
     # extract the biomass, abundance, waa variables

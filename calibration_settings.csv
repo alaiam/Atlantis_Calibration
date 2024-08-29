@@ -4,6 +4,7 @@ ZS_biomass,lnorm2,TRUE,1,TRUE,data/ZS_biomass.csv,Biomass
 ZM_biomass,lnorm2,TRUE,1,TRUE,data/ZM_biomass.csv,Biomass
 ZL_biomass,lnorm2,TRUE,1,TRUE,data/ZL_biomass.csv,Biomass
 ZG_biomass,lnorm2,TRUE,1,TRUE,data/ZG_biomass.csv,Biomass
+AUR_biomass,lnorm2,TRUE,1,TRUE,data/AUR_biomass.csv,Biomass
 SQX_biomass,lnorm2,TRUE,1,TRUE,data/SQX_biomass.csv,Biomass
 BMD_biomass,lnorm2,TRUE,1,TRUE,data/BMD_biomass.csv,Biomass
 BD_biomass,lnorm2,TRUE,1,TRUE,data/BD_biomass.csv,Biomass
@@ -38,6 +39,11 @@ COY_biomass,lnorm2,TRUE,1,TRUE,data/COY_biomass.csv,Biomass
 CMS_biomass,lnorm2,TRUE,1,TRUE,data/CMS_biomass.csv,Biomass
 CMF_biomass,lnorm2,TRUE,1,TRUE,data/CMF_biomass.csv,Biomass
 CMH_biomass,lnorm2,TRUE,1,TRUE,data/CMH_biomass.csv,Biomass
+CRH_biomass,lnorm2,TRUE,1,TRUE,data/COD_biomass.csv,Biomass
+CRW_biomass,lnorm2,TRUE,1,TRUE,data/COY_biomass.csv,Biomass
+CRC_biomass,lnorm2,TRUE,1,TRUE,data/CMS_biomass.csv,Biomass
+COR_biomass,lnorm2,TRUE,1,TRUE,data/CMF_biomass.csv,Biomass
+CDR_biomass,lnorm2,TRUE,1,TRUE,data/CMH_biomass.csv,Biomass
 PIS_biomass,lnorm2,TRUE,1,TRUE,data/PIS_biomass.csv,Biomass
 SAL_biomass,lnorm2,TRUE,1,TRUE,data/SAL_biomass.csv,Biomass
 SAF_biomass,lnorm2,TRUE,1,TRUE,data/SAF_biomass.csv,Biomass
