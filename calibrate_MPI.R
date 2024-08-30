@@ -59,12 +59,12 @@ control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run 
 control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
 control$REPORT = 1    # number of generations to run before saving a restart
 control$parallel = TRUE
-control$nCores = 14
+control$nCores = 16
 control$popsize = 14  # population  size (former seed parameter)
 control$trace = 3 #global fitness and partial fitness
 
 # call the RMPI/Snow make cluster (note here that there are no arguments!)
-NumberOfCluster <- detectCores()  - 2
+NumberOfCluster <- control$nCores
 cl <-  makeCluster(NumberOfCluster)
 
 # call the registerDoSNOW function instead of the registerDoParallel
