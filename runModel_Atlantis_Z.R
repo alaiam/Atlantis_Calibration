@@ -54,6 +54,7 @@ runModel  = function(param, names, ...) {
 ##########################################################################################
     # run Atlantis
     sh.file = "amps_cal.sh"
+    path = getwd()
     run_atlantis(path = path, sh.file = sh.file)
 
 

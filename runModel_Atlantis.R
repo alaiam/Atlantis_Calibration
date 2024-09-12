@@ -57,7 +57,7 @@ path = getwd()
 
 ##########################################################################################
     # read Atlantis outputs
-    path = "outputFolder"
+    path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i5/outputFolder"
     prefix = "AMPS"
     bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
     fg.file <- "PugetSoundAtlantisFunctionalGroups_2024.csv"

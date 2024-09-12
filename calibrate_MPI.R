@@ -52,15 +52,15 @@ objfn = calibration_objFn(model=runModel,
                           names=row.names(forcing))
 
 control = list()
-control$maxit = c(4)   # maximum number of generations (former gen.max parameter)
-control$maxgen = c(4)   # maximum number of generations (former gen.max parameter)
+control$maxit = c(8)   # maximum number of generations (former gen.max parameter)
+control$maxgen = c(8)   # maximum number of generations (former gen.max parameter)
 control$master = "/home/atlantis/psatlantismodel/Atlantis_Calibration/master/"   # directory that will be copied
 control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run directory
 control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
 control$REPORT = 1    # number of generations to run before saving a restart
 control$parallel = TRUE
-control$nCores = 16
-control$popsize = 14  # population  size (former seed parameter)
+control$nCores = 32
+control$popsize = 32  # population  size (former seed parameter)
 control$trace = 3 #global fitness and partial fitness
 
 # call the RMPI/Snow make cluster (note here that there are no arguments!)
