@@ -47,6 +47,7 @@ runModel  = function(param, names, ...) {
     #TODO: Improve biomass function
     #TODO: replace for loop
 
+
 path = getwd()
 
 ##########################################################################################
@@ -57,16 +58,31 @@ path = getwd()
 
 ##########################################################################################
     # read Atlantis outputs
-    path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i5/outputFolder"
-    prefix = "AMPS"
-    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
-    fg.file <- "PugetSoundAtlantisFunctionalGroups_2024.csv"
-    outputs <- read_atlantis(path = path, prefix = prefix, fg.file = fg.file)
+    # path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i21"
 
+    prefix = "outputFolder/AMPS"
+    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
+    fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024.csv")
+    
+    log_file <- "parallel_log_read_atlantis.txt"
+
+    
+    # library(ncdf4)
+    # nc <- ncdf4::nc_open(paste0(path, "/outputFolder/AMPS_OUT.nc"))
+    # volumes <- ncdf4::ncvar_get(nc, "volume")
+    # volumes_arr <- array(data = unlist(volumes),dim = dim(volumes)[c(1,2)]) # box/layer volumes
+    # 
+    outputs <- read_atlantis(path = path, prefix = prefix, fg.file = fg.file, 
+                             txt.filename = "outputFolder/AMPS_OUTBiomIndx.txt")
+
+    
+    
+    
+    
     # extract the biomass, abundance, waa variables
     atlantis.biomass = outputs$biomass
-    atlantis.abundance = outputs$abundance
-    atlantis.meanSizeByAge = outputs$waa
+    # atlantis.abundance = outputs$abundance
+    # atlantis.meanSizeByAge = outputs$waa
       
 ##########################################################################################
     # Check if the configuration has run
@@ -75,14 +91,92 @@ path = getwd()
 
 ##########################################################################################
 # Process the outputs so that calibrar like them
-    output = list(
+    if(length(atlantis.biomass)==2){
+      output = list(
+      MA_biomass = rep(0,2), 
+      SG_biomass = rep(0,2), 
+      ZS_biomass = rep(0,2), 
+      ZM_biomass = rep(0,2), 
+      ZL_biomass = rep(0,2), 
+      ZG_biomass = rep(0,2), 
+      AUR_biomass = rep(0,2), 
+      SQX_biomass = rep(0,2), 
+      BMD_biomass = rep(0,2), 
+      BD_biomass = rep(0,2), 
+      BG_biomass = rep(0,2), 
+      BMS_biomass = rep(0,2), 
+      DUN_biomass = rep(0,2), 
+      BML_biomass = rep(0,2), 
+      PWN_biomass = rep(0,2), 
+      BFF_biomass = rep(0,2), 
+      BIV_biomass = rep(0,2), 
+      GEC_biomass = rep(0,2), 
+      BC_biomass = rep(0,2), 
+      HEP_biomass = rep(0,2), 
+      HEC_biomass = rep(0,2), 
+      FPS_biomass = rep(0,2), 
+      POP_biomass = rep(0,2), 
+      CHY_biomass = rep(0,2), 
+      CHS_biomass = rep(0,2), 
+      CSY_biomass = rep(0,2), 
+      CSS_biomass = rep(0,2), 
+      CSN_biomass = rep(0,2), 
+      CDS_biomass = rep(0,2), 
+      CNY_biomass = rep(0,2), 
+      CNS_biomass = rep(0,2), 
+      CHC_biomass = rep(0,2), 
+      CYE_biomass = rep(0,2), 
+      CKS_biomass = rep(0,2), 
+      CRH_biomass = rep(0,2), 
+      CRW_biomass = rep(0,2), 
+      CRC_biomass = rep(0,2), 
+      COH_biomass = rep(0,2), 
+      COS_biomass = rep(0,2), 
+      COD_biomass = rep(0,2), 
+      COY_biomass = rep(0,2), 
+      COR_biomass = rep(0,2), 
+      CDR_biomass = rep(0,2), 
+      CMS_biomass = rep(0,2), 
+      CMF_biomass = rep(0,2), 
+      CMH_biomass = rep(0,2), 
+      PIS_biomass = rep(0,2), 
+      SAL_biomass = rep(0,2), 
+      SAF_biomass = rep(0,2), 
+      FMM_biomass = rep(0,2), 
+      FVS_biomass = rep(0,2), 
+      ROC_biomass = rep(0,2), 
+      MRO_biomass = rep(0,2), 
+      DVR_biomass = rep(0,2), 
+      MVR_biomass = rep(0,2), 
+      SMD_biomass = rep(0,2), 
+      FDF_biomass = rep(0,2), 
+      HAP_biomass = rep(0,2), 
+      DOG_biomass = rep(0,2), 
+      SBL_biomass = rep(0,2), 
+      SSK_biomass = rep(0,2), 
+      RAT_biomass = rep(0,2), 
+      SB_biomass = rep(0,2), 
+      SP_biomass = rep(0,2), 
+      BE_biomass = rep(0,2), 
+      HSL_biomass = rep(0,2), 
+      CSL_biomass = rep(0,2), 
+      PIN_biomass = rep(0,2), 
+      PHR_biomass = rep(0,2), 
+      ROR_biomass = rep(0,2), 
+      TOR_biomass = rep(0,2), 
+      HUW_biomass = rep(0,2))
+
+    }else{
+output = list(
 
       # Biomass
       MA_biomass = unname(unlist(atlantis.biomass["Macroalgae"])), 
+      SG_biomass = unname(unlist(atlantis.biomass["Seagrass"])), 
       ZS_biomass = unname(unlist(atlantis.biomass["Micro_Zoo"])), 
       ZM_biomass = unname(unlist(atlantis.biomass["Meso_Zoo"])), 
       ZL_biomass = unname(unlist(atlantis.biomass["Lrg_Zoo"])), 
       ZG_biomass = unname(unlist(atlantis.biomass["Gel_Zoo"])), 
+      AUR_biomass = unname(unlist(atlantis.biomass["Aurelia"])), 
       SQX_biomass = unname(unlist(atlantis.biomass["Squid"])), 
       BMD_biomass = unname(unlist(atlantis.biomass["Macrobenth_Deep"])), 
       BD_biomass = unname(unlist(atlantis.biomass["Deposit_Feeder"])), 
@@ -110,10 +204,15 @@ path = getwd()
       CHC_biomass = unname(unlist(atlantis.biomass["ChinookHY_Fish"])), 
       CYE_biomass = unname(unlist(atlantis.biomass["ChinookOY_Fish"])), 
       CKS_biomass = unname(unlist(atlantis.biomass["ChinookOSY_Fish"])), 
+      CRH_biomass = unname(unlist(atlantis.biomass["ChinookResH_Fish"])), 
+      CRW_biomass = unname(unlist(atlantis.biomass["ChinookResN_Fish"])), 
+      CRC_biomass = unname(unlist(atlantis.biomass["ChinookResW_Fish"])), 
       COH_biomass = unname(unlist(atlantis.biomass["CohoHY_Fish"])), 
       COS_biomass = unname(unlist(atlantis.biomass["CohoSY_Fish"])), 
       COD_biomass = unname(unlist(atlantis.biomass["CohoDSY_Fish"])), 
       COY_biomass = unname(unlist(atlantis.biomass["CohoOY_Fish"])), 
+      COR_biomass = unname(unlist(atlantis.biomass["CohoRes_Fish"])), 
+      CDR_biomass = unname(unlist(atlantis.biomass["CohoResD_Fish"])), 
       CMS_biomass = unname(unlist(atlantis.biomass["ChumHSY_Fish"])), 
       CMF_biomass = unname(unlist(atlantis.biomass["ChumFSY_Fish"])), 
       CMH_biomass = unname(unlist(atlantis.biomass["ChumHCSY_Fish"])), 
@@ -230,6 +329,10 @@ path = getwd()
       # Trans_Orcas.meanSizeByAge10 = atlantis.meanSizeByAge["Trans_Orcas10_StructN"]
       )
 
+
+
+
+    }
     return(output)
 
 }

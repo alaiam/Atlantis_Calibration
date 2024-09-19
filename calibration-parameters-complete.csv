@@ -18,7 +18,7 @@ mum_BML_factor,1,0.25,4,1
 mum_PWN_factor,1,0.25,4,1
 mum_BFF_factor,1,0.25,4,1
 mum_BIV_factor,1,0.25,4,1
-mum_GEC_factor,1,0.25,4,1
+mum_GEC_factor,1,0.5,2,1
 mum_BC_factor,1,0.25,4,1
 mum_HEP_factor,1,0.25,4,1
 mum_HEC_factor,1,0.25,4,1
