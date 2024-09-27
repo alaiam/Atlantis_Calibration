@@ -1,5 +1,7 @@
 **.nc
 RUN*
-master*
+#master*
 Copy*
 restart*
+.secrets
+**.pdf
