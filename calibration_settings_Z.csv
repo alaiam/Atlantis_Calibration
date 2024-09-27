@@ -1,4 +1,0 @@
-variable,type,calibrate,weight,use_data,file,varid
-ZS_biomass,lnorm2,TRUE,1,TRUE,data/ZS_biomass.csv,Biomass
-ZM_biomass,lnorm2,TRUE,1,TRUE,data/ZM_biomass.csv,Biomass
-ZL_biomass,lnorm2,TRUE,1,TRUE,data/ZL_biomass.csv,Biomass
