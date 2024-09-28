@@ -13,7 +13,7 @@ library(stringr)
 
 require("atlantis2ls")
 require("calibrar")
-# devtools::install_github("https://github.com/alaiam/atlantis2ls/tree/develop")
+# devtools::install_github("https://github.com/alaiam/atlantis2ls")
 # Need to load the doSNOW package, which is installed in my HOME: /home1/datahome/nbarrier/libs/R/lib
 require("doSNOW")
 
@@ -52,8 +52,8 @@ objfn = calibration_objFn(model=runModel,
                           names=row.names(forcing))
 
 control = list()
-control$maxit = c(4)   # maximum number of generations (former gen.max parameter)
-control$maxgen = c(4)   # maximum number of generations (former gen.max parameter)
+control$maxit = c(2)   # maximum number of generations (former gen.max parameter)
+control$maxgen = c(2)   # maximum number of generations (former gen.max parameter)
 control$master = "/home/atlantis/psatlantismodel/Atlantis_Calibration/master/"   # directory that will be copied
 control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run directory
 control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
