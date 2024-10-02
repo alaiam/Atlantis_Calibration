@@ -11,6 +11,7 @@ runModel  = function(param, names, ...) {
 
     # set parameter names
     names(param) = names
+    param = exp(param)
     write.table(param, file="calibration-parameters.csv", sep=",",
                 col.names=FALSE, quote=FALSE)
     mum.factor = grep(x=names, pattern="mum")

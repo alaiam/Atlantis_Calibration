@@ -3,10 +3,10 @@ par(mfrow = c(1,2))
 
 gen <- length((a$trace$best))
 
-plot(0:gen, c(6500, a$trace$fitness), type = "l", lwd = 2, xlab = "Generations", ylab = "Objective function value")
+plot(0:gen, c(56000, a$trace$fitness), type = "l", lwd = 2, xlab = "Generations", ylab = "Objective function value")
 plot(0:gen, c(1, a$trace$par[,1]), type = "l", col = "darkorange", ylim = c(0.25,2.5), lwd = 2, xlab = "Generations", ylab = "Parameter factor")
 
-for (i in 1:39){
+for (i in 1:37){
   lines(0:gen, c(1, a$trace$par[,3*(i-1)+1]), type = "l", col = "darkorange", lwd = 2)
   lines(0:gen, c(1, a$trace$par[,3*(i-1)+2]), col = "red", lwd = 2)
   lines(0:gen, c(1, a$trace$par[,3*(i-1)+3]), col = "darkred", lwd = 2)
