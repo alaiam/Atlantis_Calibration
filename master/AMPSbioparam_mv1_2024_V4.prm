@@ -19190,29 +19190,29 @@ C_HUW      10
                            
 #   Consumer   growth   -   this   is   used   by   Holling   type   feeding   (predcase   0,   1,   2)
 
-mum_BB_T15   0.795
+mum_BB_T15   0.9
 mum_PB_T15   0.75
 mum_PL_T15   0.00000000000001
 mum_PS_T15   0.00000000000001
 mum_MA_T15   0.01
-mum_SG_T15   0.005
-mum_ZS_T15   0.00180567438629318
-mum_ZM_T15   0.00143285147241837
-mum_ZL_T15   0.00385748713585218
+mum_SG_T15   0.025
+mum_ZS_T15   0.01
+mum_ZM_T15   0.01
+mum_ZL_T15   0.03
 mum_ZG_T15   0.00502982793074512
 mum_AUR_T15   0.00487715946002037
-mum_SQX_T15   0.0009941185817
-mum_BMD_T15   0.0009
-mum_BMS_T15   0.003138238897
-mum_DUN_T15   0.000532870540310444
+mum_SQX_T15   0.002
+mum_BMD_T15   0.001
+mum_BMS_T15   0.002
+mum_DUN_T15   0.0007
 mum_BML_T15   0.001
 mum_PWN_T15   0.0003
 mum_BFF_T15   0.0008
-mum_BIV_T15   0.0008
+mum_BIV_T15   0.0004
 mum_BD_T15   0.0008
 mum_BG_T15   0.000733002798127265
 mum_GEC_T15   0.000075
-mum_BC_T15   0.0008
+mum_BC_T15   0.0004
 
 #   Vertebrate   growth   rates   for   each   "group,"   per   age   class   mg   N   d-1.   See   flagfishrates   above   to   see   whether   clearance   and   growth   rates   are   chosen   as   absolute   (=0),   or   as   proportion   of   body   mass   (=1)
 
@@ -21309,12 +21309,12 @@ ROR_mQ  2
 	
 TOR_mQ  2	
 	
-3.88E-10	0.00E+00
+3.88E-9	0.00E+00
 	
 	
 HUW_mQ  2	
 	
-3.78E-10	0.00E+00
+3.78E-9	0.00E+00
 
 #   Starvation   mortality
 
@@ -24220,8 +24220,8 @@ Rbeta_TOR   999
 Rbeta_HUW   999
 
 
-BHalpha_HEP   2689742738696.91
-BHalpha_HEC   458494123265.224
+BHalpha_HEP   144292965
+BHalpha_HEC   17868555
 BHalpha_FPS   120922692.6
 BHalpha_POP   99
 BHalpha_CHY   24750
@@ -24250,7 +24250,7 @@ BHalpha_CMH   1050000
 BHalpha_PIS   12075000
 BHalpha_SAL   805739.0625
 BHalpha_SAF   4950016.10989238
-BHalpha_FMM   13352884.3829497
+BHalpha_FMM   16731000
 BHalpha_FVS   154000
 BHalpha_ROC   651402.06865949
 BHalpha_MRO   726000
@@ -24275,8 +24275,8 @@ BHalpha_TOR   99
 BHalpha_HUW   99
    
    
-BHbeta_HEP   5977399648779
-BHbeta_HEC   1138191663874
+BHbeta_HEP   597739965
+BHbeta_HEC   113819166
 BHbeta_FPS   9926080433
 BHbeta_POP   99
 BHbeta_CHY   9.63E+06
@@ -24305,7 +24305,7 @@ BHbeta_CMH   4.42E+03
 BHbeta_PIS   3.85E+07
 BHbeta_SAL   1.09E+07
 BHbeta_SAF   2.09E+04
-BHbeta_FMM   45149894032
+BHbeta_FMM   6772484105
 BHbeta_FVS   188060723
 BHbeta_ROC   2404274454
 BHbeta_MRO   6651837099
