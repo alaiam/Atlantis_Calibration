@@ -17,7 +17,8 @@ runModel  = function(param, names, ...) {
     mum.factor = grep(x=names, pattern="mum")
     BHalpha.factor = grep(x=names, pattern="BHalpha")
     mq.factor = grep(x=names, pattern="mQ")
-    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
+    KDENR.factor = grep(x=names, pattern="KDENR_")
+    bio.prm = "AMPSbioparam_mv1_2024_V7.prm"
     bio.lines = readLines(bio.prm)
 
     for (i in 1:length(mum.factor)){
@@ -37,12 +38,21 @@ runModel  = function(param, names, ...) {
       bio.lines = edit_param_BHalpha_sp(bio.lines, factor, species)
     }
     
+    for (i in 1:length(KDENR.factor)){
+      species <- names[KDENR.factor[i]]
+      factor  <- param[KDENR.factor[i]]
+      species <- sub("KDENR_", "", species)
+      species <- sub("_factor", "", species)
+      bio.lines = atlantis2ls::edit_param_KDENR_sp(bio.lines, factor, species)
+    }
+    
     for (i in 1:length(mq.factor)){
       species <- names[mq.factor[i]]
       factor  <- param[mq.factor[i]]
       species <- sub("_mQ_factor", "", species)
       bio.lines = atlantis2ls::edit_param_mq_sp(bio.lines, factor, species)
     }
+    
     writeLines(bio.lines, "bio.prm")
 
     #TODO: Improve biomass function
@@ -62,8 +72,8 @@ path = getwd()
     # path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_25_2024/i21"
 
     prefix = "outputFolder/AMPS"
-    bio.prm = "AMPSbioparam_mv1_2024_V4.prm"
-    fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024.csv")
+    bio.prm = "AMPSbioparam_mv1_2024_V7.prm"
+    fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
     
     log_file <- "parallel_log_read_atlantis.txt"
 
