@@ -12,7 +12,7 @@ col[regexpr("mQ", b$names)>0] <- "brown"
 
 gen <- length((a$trace$best))
 
-plot(0:gen, c(11500, a$trace$fitness), type = "l", lwd = 2, xlab = "Generations", ylab = "Objective function value")
+plot(0:gen, c(6000, a$trace$fitness), type = "l", lwd = 2, xlab = "Generations", ylab = "Objective function value")
 plot(0:gen, c(0, a$trace$par[,1]), type = "l", col = "brown", ylim = c(-1,1), lwd = 2, xlab = "Generations", ylab = "Parameter factor")
 
 
@@ -24,7 +24,7 @@ for (i in 1:length(b$names)){
   
 }
 
-plot(density(a$trace$par[9,]))
+plot(density(a$trace$par[4,]))
 param <- a$trace$par
 colnames(param) <- b$names
 exp(param)
