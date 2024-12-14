@@ -52,8 +52,8 @@ objfn = calibration_objFn(model=runModel,
                           names=row.names(forcing))
 
 control = list()
-control$maxit = c(9)   # maximum number of generations (former gen.max parameter)
-control$maxgen = c(9)   # maximum number of generations (former gen.max parameter)
+control$maxit = c(5)   # maximum number of generations (former gen.max parameter)
+control$maxgen = c(5)   # maximum number of generations (former gen.max parameter)
 control$master = "/home/atlantis/psatlantismodel/Atlantis_Calibration/configuration/"   # directory that will be copied
 control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run directory
 control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
