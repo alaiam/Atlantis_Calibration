@@ -1,0 +1,72 @@
+---
+title: "Fitness evolution since october"
+output: html_document
+date: "2024-12-04"
+---
+# The first step is to setup the libraries
+```{r load options, include=}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+options(scipen = 999)
+
+# List of packages for session
+.packages = c("here","doSNOW")
+
+# Load packages into session 
+lapply(.packages, require, character.only=TRUE)
+
+```
+
+## R Markdown
+
+Each calibration trial reduces the difference between observation and simulation. The difference is called "fitness. This is an exploration of the fitness improvement since october, when the weight-at-age were included in the robot calibration process. 
+The files tracking the calibration trial are saved in the folder "keep_track_calibration".
+We open them:
+
+```{r pressure, echo=FALSE}
+
+path <- here("psatlantismodel/Atlantis_Calibration/keep_track_calibration")
+files <- list.files(path)
+filtered_list <- files[grepl("\\.results$", files)]
+calib_results <- c()
+numbers <- as.numeric(sub("^([0-9]+).*", "\\1", filtered_list))
+sorted_list <- filtered_list[order(numbers)]
+for (file in sorted_list) {
+  print(paste("Opening of:", file))
+  a <- readRDS(paste(path, file, sep = "/"))
+  print(a$trace$best)
+  calib_results[[file]] <- a$trace$value
+}
+
+
+
+
+```
+
+Now that we have retrieved the outputs of the calibration, we estimate a fitness value before each trial before the calibration and insert it in each trial vector 
+```{r}
+for (file in names(calib_results)) {
+  # Récupérer le vecteur
+  vec <- calib_results[[file]]
+  
+  # Calculer l'élément à ajouter
+  new_element <- vec[1] + (vec[1] - vec[2])
+  
+  # Ajouter l'élément au début du vecteur
+  calib_results[[file]] <- c(new_element, vec)
+}
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+
+plot(c(unlist(calib_results)[-(1:5)]), type = "l", 
+     xlab = "Calibration generations", ylab = "Fitness", ylim = c(0,12000))
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
