@@ -1,0 +1,382 @@
+---
+title: "Partial fitness exploration"
+output: html_document
+date: "2024-12-09"
+---
+# Partial fitness exploration for the Atlantis Model for Puget Sound
+
+The user needs to adjust the following paths or names:
+```{r}
+path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0"
+prefix = "outputFolder/AMPS"
+bio.prm = "AMPSbioparam_mv1_2024_V7.prm"
+fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
+dt.timeserie = 2
+```
+
+## Process the data
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(atlantis2ls)
+library(stringr)
+# Objective function #
+lnorm_m = function(obs, sim, tiny=1e-2, ...) {
+if(all(!is.finite(sim))) return(Inf)
+obs = log(obs + tiny)
+sim = log(sim + tiny)
+nlogLike = sum((sim-obs), na.rm=TRUE)
+return(nlogLike)
+}
+
+
+```
+
+
+Loading the simulated data:
+```{r}
+# Sim # 
+
+
+fg <- read.csv(fg.file)
+
+if (file.exists(paste0(path, "/", "processed_data.RData"))){
+  load(paste0(path, "/", "processed_data.RData"))
+}else{
+data.sim <- read_atlantis(path = path, fg.file = fg.file, prefix = prefix)
+save(data.sim, 
+     file = paste0(path, "/", "processed_data.RData"))
+}
+
+
+```
+
+Loading the observed data:
+```{r}
+
+data.obs <- list()
+data.obs$biomass <- list()
+data.obs$waa <- list()
+
+obs.files <- list.files("/home/atlantis/psatlantismodel/Atlantis_Calibration/data")
+
+for (i in 1:length(obs.files)){
+  obs.i = read.csv(paste0("/home/atlantis/psatlantismodel/Atlantis_Calibration/data/", 
+                          obs.files[i]))[,2]
+  
+  if (grepl("biomass", obs.files[i])){
+    sp <- obs.files[i]
+    sp <- sub("_biomass\\.csv$", "", sp)
+    sp <-fg$Name[fg$Code==sp]
+    if (length(sp)> 0) {
+      data.obs$biomass[[sp]] = obs.i
+    }
+  }else {
+    sp <- obs.files[i]
+    sp <- sub("_w\\.csv$", "", sp)
+    data.obs$waa[[sp]] = obs.i
+  }
+}
+
+
+```
+
+
+## Calculate the partial fitness: 
+```{r}
+partial.fitness <- list()
+partial.fitness$biomass <- list()
+partial.fitness$waa <- list()
+
+sim.over <- list()
+sim.over$biomass <- list()
+sim.over$waa <- list()
+
+for (i in 1:length(data.obs$biomass)){
+  sp <- names(data.obs$biomass[i])
+  sim <- data.sim$biomass[[sp]]
+  obs <- data.obs$biomass[[sp]]
+  partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  if (mean(sim)>=mean(obs)){sim.over$biomass[[sp]]=1}else{sim.over$biomass[[sp]]=0}
+  
+}
+
+for (i in 1:length(data.obs$waa)){
+  sp <- names(data.obs$waa[i])
+  sim <- data.sim$waa[[sp]]
+  obs <- data.obs$waa[[sp]]
+  partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  if (mean(sim)>=mean(obs)){sim.over$waa[[sp]]=1}else{sim.over$waa[[sp]]=0}
+  
+}
+```
+
+
+## Sum up of the results:
+```{r}
+# Global results
+print("Total fitness is:")
+sum(unlist(partial.fitness))/dt.timeserie
+print("Total fitness for biomass indicator is:")
+sum(unlist(partial.fitness$biomass))/dt.timeserie
+print("Total fitness for Waa indicator is:")
+sum(unlist(partial.fitness$waa))/dt.timeserie
+print("Average Fitness for each biomass indicator is:")
+(sum(unlist(partial.fitness$biomass))/dt.timeserie/74)
+print("Average Fitness for each biomass indicator is:")
+(sum(unlist(partial.fitness$waa))/dt.timeserie/(377))
+```
+
+
+
+## Plot section 
+### Figure 1:
+```{r}
+
+biomass_vals <- sort((unlist(partial.fitness$biomass) /dt.timeserie))
+col.biomass = unlist(sim.over$biomass)
+col.biomass = col.biomass[names(biomass_vals)]
+waa_vals <- sort((unlist(partial.fitness$waa) /dt.timeserie))
+col.waa = unlist(sim.over$waa)
+col.waa = col.waa[names(waa_vals)]
+
+# Plot 1 
+par(mfrow = c(1, 2), mar = c(2, 4, 2, 1)) 
+
+# Biomass plot
+plot(
+  biomass_vals,
+  lwd = 2,
+  xlab = "Sorted Index",
+  ylab = "log(sim)-log(obs)",
+  main = "Biomass Partial Fitness",
+  cex.lab = 1.2,
+  cex.main = 1.3
+)
+abline(h = 2, col = "red", lty = 2, lwd = 2) # Max accepted
+abline(h = 1, col = "orange", lty = 2, lwd = 2) # Goal max
+abline(h = -2, col = "red", lty = 2, lwd = 2) # Min accepted
+abline(h = -1, col = "orange", lty = 2, lwd = 2) # Goal Min
+
+# Waa plot
+plot(waa_vals,
+  lwd = 2,
+  xlab = "Sorted Index",
+  ylab = "log(sim)-log(obs)",
+  main = "WAA Partial Fitness",
+  cex.lab = 1.2,
+  cex.main = 1.3)
+abline(h = 1, col = "red", lty = 2, lwd = 2) # Max accepted
+abline(h = -1, col = "red", lty = 2, lwd = 2) # Max accepted
+abline(h = log10(2), col = "orange", lty = 2, lwd = 2) # Goal Min
+abline(h = -log10(2), col = "orange", lty = 2, lwd = 2) # Goal Min
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+
+
+
+```
+
+
+
+# Comparison of the model states
+### Figure 2
+
+```{r}
+folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1", 
+                  "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0")
+
+# Ligne 1
+for (j in 1:length(folder.path)){
+  load(paste0(folder.path[j], "/", "processed_data.RData"))
+  partial.fitness <- list()
+  partial.fitness$biomass <- list()
+  partial.fitness$waa <- list()
+
+  for (i in 1:length(data.obs$biomass)){
+    sp <- names(data.obs$biomass[i])
+    sim <- data.sim$biomass[[sp]]
+    obs <- data.obs$biomass[[sp]]
+    partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  }
+
+  for (i in 1:length(data.obs$waa)){
+    sp <- names(data.obs$waa[i])
+    sim <- data.sim$waa[[sp]]
+    obs <- data.obs$waa[[sp]]
+    partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)
+    }
+  
+  biomass_vals <- sort((unlist(partial.fitness$biomass) /dt.timeserie))
+
+  if (j == 1){
+# Biomass plot
+plot(biomass_vals,  col = "grey25",  lwd = 2,  xlab = "Sorted Index",  ylab = "log(sim)-log(obs)",  
+     main = "Biomass Partial Fitness", cex.lab = 1.2,  cex.main = 1.3, pch = 18)
+}else{
+  points(biomass_vals,  col = "grey80",  lwd = 2, pch = 18)
+}
+  abline(h = 2, col = "red", lty = 2, lwd = 2) # Max accepted
+  abline(h = 1, col = "orange", lty = 2, lwd = 2) # Goal max
+  abline(h = -2, col = "red", lty = 2, lwd = 2) # Max accepted
+  abline(h = -1, col = "orange", lty = 2, lwd = 2) # Goal max
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+  }                          
+for (j in 1:length(folder.path)){
+  
+
+  load(paste0(folder.path[j], "/", "processed_data.RData"))
+  partial.fitness <- list()
+  partial.fitness$biomass <- list()
+  partial.fitness$waa <- list()
+
+  for (i in 1:length(data.obs$biomass)){
+    sp <- names(data.obs$biomass[i])
+    sim <- data.sim$biomass[[sp]]
+    obs <- data.obs$biomass[[sp]]
+    partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  
+  }
+
+  for (i in 1:length(data.obs$waa)){
+    sp <- names(data.obs$waa[i])
+    sim <- data.sim$waa[[sp]]
+    obs <- data.obs$waa[[sp]]
+    partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)
+    }
+  
+  waa_vals <- sort((unlist(partial.fitness$waa) /dt.timeserie))
+
+  if (j == 1){
+# # Waa plot
+plot(waa_vals,  col = "grey25",  lwd = 2,  xlab = "Sorted Index",  ylab = "log(sim)-log(obs)",
+  main = "WAA Partial Fitness",  cex.lab = 1.2,  cex.main = 1.3, pch = 18)
+  
+}else{
+  points(waa_vals,  col = "grey80",  lwd = 2, pch = 18)
+}
+  abline(h = 1, col = "red", lty = 2, lwd = 2) # Max accepted
+  abline(h = 0.3, col = "orange", lty = 2, lwd = 2) # Goal max
+  abline(h = -1, col = "red", lty = 2, lwd = 2) # Min accepted
+  abline(h = -0.3, col = "orange", lty = 2, lwd = 2) # Goal min
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+}  
+
+
+  
+# Ligne 2
+for (j in 1:length(folder.path)){
+  load(paste0(folder.path[j], "/", "processed_data.RData"))
+  partial.fitness <- list()
+  partial.fitness$biomass <- list()
+  partial.fitness$waa <- list()
+
+  for (i in 1:length(data.obs$biomass)){
+    sp <- names(data.obs$biomass[i])
+    sim <- data.sim$biomass[[sp]]
+    obs <- data.obs$biomass[[sp]]
+    partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  }
+
+  for (i in 1:length(data.obs$waa)){
+    sp <- names(data.obs$waa[i])
+    sim <- data.sim$waa[[sp]]
+    obs <- data.obs$waa[[sp]]
+    partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  }
+
+
+
+  if (j == 1){
+  biomass_vals <- sort((unlist(partial.fitness$biomass) /dt.timeserie))
+  order.B <- names(biomass_vals)
+# Biomass plot
+plot(biomass_vals,  col = "grey25",  lwd = 2,  xlab = "Sorted Index",  ylab = "log(sim)-log(obs)",  
+     main = "Biomass Partial Fitness", cex.lab = 1.2,  cex.main = 1.3, pch = 18)
+}else{
+  biomass_vals <- unlist(partial.fitness$biomass[order.B]) /dt.timeserie
+  points(biomass_vals,  col = "grey80",  lwd = 2, pch = 18)
+}
+  abline(h = 2, col = "red", lty = 2, lwd = 2) # Max accepted
+  abline(h = 1, col = "orange", lty = 2, lwd = 2) # Goal max
+  abline(h = -2, col = "red", lty = 2, lwd = 2) # Max accepted
+  abline(h = -1, col = "orange", lty = 2, lwd = 2) # Goal max
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+}                          
+for (j in 1:length(folder.path)){
+  
+
+  load(paste0(folder.path[j], "/", "processed_data.RData"))
+  partial.fitness <- list()
+  partial.fitness$biomass <- list()
+  partial.fitness$waa <- list()
+
+  for (i in 1:length(data.obs$biomass)){
+    sp <- names(data.obs$biomass[i])
+    sim <- data.sim$biomass[[sp]]
+    obs <- data.obs$biomass[[sp]]
+    partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  
+  }
+
+  for (i in 1:length(data.obs$waa)){
+    sp <- names(data.obs$waa[i])
+    sim <- data.sim$waa[[sp]]
+    obs <- data.obs$waa[[sp]]
+    partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)
+    }
+  
+  if (j == 1){
+  waa_vals <- sort((unlist(partial.fitness$waa) /dt.timeserie))
+    order.WAA <- names(waa_vals)
+  plot(waa_vals,  col = "grey25",  lwd = 2,  xlab = "Sorted Index",  ylab = "log(sim)-log(obs)",
+       main = "WAA Partial Fitness",  cex.lab = 1.2,  cex.main = 1.3, pch = 18)
+  
+}else{
+  waa_vals <- unlist(partial.fitness$waa[order.WAA]) /dt.timeserie
+  points(waa_vals,  col = "grey80",  lwd = 2, pch = 18)
+}
+  abline(h = 1, col = "red", lty = 2, lwd = 2) # Max accepted
+  abline(h = 0.3, col = "orange", lty = 2, lwd = 2) # Goal max
+  abline(h = -1, col = "red", lty = 2, lwd = 2) # Min accepted
+  abline(h = -0.3, col = "orange", lty = 2, lwd = 2) # Goal min
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+  }  
+
+```
+
+### Figure 4
+```{r}
+folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0", 
+                        "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1")
+                          # "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_10_17_2024/i0")
+
+{pf.biomass.group <- names.biomass.group <-c()
+for (i in 1:length(data.obs$biomass)){
+    sp <- names(data.obs$biomass[i])
+    pf.sp <- unlist(partial.fitness$biomass[[sp]])
+    indices <- grep(sp, names(partial.fitness$waa))
+    
+    if (length(indices)>0){
+      waa.names <- names(partial.fitness$waa)[indices]
+      pf.sp <- c(pf.sp, unlist(partial.fitness$waa[waa.names]))
+      waa.names <- gsub(".*[^0-9]([0-9]+)$", "Age \\1", waa.names)
+      plot(as.factor(c("Biomass", waa.names)), (pf.sp/dt.timeserie), main = sp, ylab = "Partial fitness", xlab = "", lty = 1, las=3)
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+
+    }else{
+      pf.biomass.group <- c(pf.biomass.group,(pf.sp/dt.timeserie))
+      names.biomass.group <- c(names.biomass.group,sp)
+      
+    }
+
+  }
+plot(as.factor(names.biomass.group), pf.biomass.group, main = "Biomass group", ylab = "Partial fitness", xlab = "", lty = 1, las=3)
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+
+box()
+print("")}
+
+
+
+```
+
