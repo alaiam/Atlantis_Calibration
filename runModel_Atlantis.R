@@ -18,7 +18,7 @@ runModel  = function(param, names, ...) {
     BHalpha.factor = grep(x=names, pattern="BHalpha")
     mq.factor = grep(x=names, pattern="mQ")
     KDENR.factor = grep(x=names, pattern="KDENR_")
-    bio.prm = "AMPSbioparam_mv1_2024_V7.prm"
+    bio.prm = "AMPSbioparam_mv1_2024_V10.prm"
     bio.lines = readLines(bio.prm)
 
     for (i in 1:length(mum.factor)){
@@ -72,7 +72,7 @@ path = getwd()
     # path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_25_2024/i21"
 
     prefix = "outputFolder/AMPS"
-    bio.prm = "AMPSbioparam_mv1_2024_V7.prm"
+    bio.prm = "AMPSbioparam_mv1_2024_V10.prm"
     fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
     
     log_file <- "parallel_log_read_atlantis.txt"
