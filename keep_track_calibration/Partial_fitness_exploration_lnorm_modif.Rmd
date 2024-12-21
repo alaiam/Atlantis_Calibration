@@ -7,9 +7,9 @@ date: "2024-12-09"
 
 The user needs to adjust the following paths or names:
 ```{r}
-path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0"
+path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_20_2024/i0"
 prefix = "outputFolder/AMPS"
-bio.prm = "AMPSbioparam_mv1_2024_V7.prm"
+bio.prm = "AMPSbioparam_mv1_2024_V10.prm"
 fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
 dt.timeserie = 2
 ```
@@ -84,6 +84,8 @@ for (i in 1:length(obs.files)){
 
 ## Calculate the partial fitness: 
 ```{r}
+
+calibration_settings <- read.csv("/home/atlantis/psatlantismodel/Atlantis_Calibration/calibration_settings.csv")
 partial.fitness <- list()
 partial.fitness$biomass <- list()
 partial.fitness$waa <- list()
@@ -96,18 +98,20 @@ for (i in 1:length(data.obs$biomass)){
   sp <- names(data.obs$biomass[i])
   sim <- data.sim$biomass[[sp]]
   obs <- data.obs$biomass[[sp]]
-  partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)
+  partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)/dt.timeserie
   if (mean(sim)>=mean(obs)){sim.over$biomass[[sp]]=1}else{sim.over$biomass[[sp]]=0}
   
 }
 
 for (i in 1:length(data.obs$waa)){
   sp <- names(data.obs$waa[i])
-  sim <- data.sim$waa[[sp]]
-  obs <- data.obs$waa[[sp]]
-  partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)
+      if (calibration_settings$calibrate[calibration_settings$variable==paste0(sp, "_w")]){
+          sim <- data.sim$waa[[sp]]
+          obs <- data.obs$waa[[sp]]
+          partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)/dt.timeserie
   if (mean(sim)>=mean(obs)){sim.over$waa[[sp]]=1}else{sim.over$waa[[sp]]=0}
-  
+        
+      }
 }
 ```
 
@@ -116,15 +120,15 @@ for (i in 1:length(data.obs$waa)){
 ```{r}
 # Global results
 print("Total fitness is:")
-sum(unlist(partial.fitness))/dt.timeserie
+sum(abs(unlist(partial.fitness)))
 print("Total fitness for biomass indicator is:")
-sum(unlist(partial.fitness$biomass))/dt.timeserie
+sum(abs(unlist(partial.fitness$biomass)))
 print("Total fitness for Waa indicator is:")
-sum(unlist(partial.fitness$waa))/dt.timeserie
+sum(abs(unlist(partial.fitness$waa)))
 print("Average Fitness for each biomass indicator is:")
-(sum(unlist(partial.fitness$biomass))/dt.timeserie/74)
-print("Average Fitness for each biomass indicator is:")
-(sum(unlist(partial.fitness$waa))/dt.timeserie/(377))
+(sum(abs(unlist(partial.fitness$biomass)))/74)
+print("Average Fitness for each waa indicator is:")
+(sum(abs(unlist(partial.fitness$waa)))/(318))
 ```
 
 
@@ -183,7 +187,7 @@ abline(h = -log10(2), col = "orange", lty = 2, lwd = 2) # Goal Min
 
 ```{r}
 folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1", 
-                  "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0")
+                  "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0")
 
 # Ligne 1
 for (j in 1:length(folder.path)){

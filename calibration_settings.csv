@@ -287,8 +287,8 @@ NonPisc_Seabird7_w,lnorm2,TRUE,1,TRUE,data/NonPisc_Seabird7_w.csv,Weight
 NonPisc_Seabird8_w,lnorm2,TRUE,1,TRUE,data/NonPisc_Seabird8_w.csv,Weight
 NonPisc_Seabird9_w,lnorm2,TRUE,1,TRUE,data/NonPisc_Seabird9_w.csv,Weight
 OtherSal_Fish1_w,lnorm2,TRUE,1,TRUE,data/OtherSal_Fish1_w.csv,Weight
-OtherSal_Fish2_w,lnorm2,TRUE,1,TRUE,data/OtherSal_Fish2_w.csv,Weight
-OtherSal_Fish3_w,lnorm2,TRUE,1,TRUE,data/OtherSal_Fish3_w.csv,Weight
+OtherSal_Fish2_w,lnorm2,FALSE,1,FALSE,data/OtherSal_Fish2_w.csv,Weight
+OtherSal_Fish3_w,lnorm2,FALSE,1,FALSE,data/OtherSal_Fish3_w.csv,Weight
 OtherSal_Fish4_w,lnorm2,TRUE,1,TRUE,data/OtherSal_Fish4_w.csv,Weight
 OtherSal_Fish5_w,lnorm2,TRUE,1,TRUE,data/OtherSal_Fish5_w.csv,Weight
 OtherSal_Fish6_w,lnorm2,TRUE,1,TRUE,data/OtherSal_Fish6_w.csv,Weight
@@ -376,9 +376,9 @@ Res_Orca7_w,lnorm2,TRUE,1,TRUE,data/Res_Orca7_w.csv,Weight
 Res_Orca8_w,lnorm2,TRUE,1,TRUE,data/Res_Orca8_w.csv,Weight
 Res_Orca9_w,lnorm2,TRUE,1,TRUE,data/Res_Orca9_w.csv,Weight
 SGeorgia_Fish1_w,lnorm2,TRUE,1,TRUE,data/SGeorgia_Fish1_w.csv,Weight
-SGeorgia_Fish2_w,lnorm2,TRUE,1,TRUE,data/SGeorgia_Fish2_w.csv,Weight
-SGeorgia_Fish3_w,lnorm2,TRUE,1,TRUE,data/SGeorgia_Fish3_w.csv,Weight
-SGeorgia_Fish4_w,lnorm2,TRUE,1,TRUE,data/SGeorgia_Fish4_w.csv,Weight
+SGeorgia_Fish2_w,lnorm2,FALSE,1,FALSE,data/SGeorgia_Fish2_w.csv,Weight
+SGeorgia_Fish3_w,lnorm2,FALSE,1,FALSE,data/SGeorgia_Fish3_w.csv,Weight
+SGeorgia_Fish4_w,lnorm2,FALSE,1,FALSE,data/SGeorgia_Fish4_w.csv,Weight
 SGeorgia_Fish5_w,lnorm2,TRUE,1,TRUE,data/SGeorgia_Fish5_w.csv,Weight
 Sixgill_Shark1_w,lnorm2,TRUE,1,TRUE,data/Sixgill_Shark1_w.csv,Weight
 Sixgill_Shark10_w,lnorm2,TRUE,1,TRUE,data/Sixgill_Shark10_w.csv,Weight
