@@ -7,7 +7,7 @@ date: "2024-12-09"
 
 The user needs to adjust the following paths or names:
 ```{r}
-path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_20_2024/i0"
+path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0"
 prefix = "outputFolder/AMPS"
 bio.prm = "AMPSbioparam_mv1_2024_V10.prm"
 fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
@@ -90,17 +90,12 @@ partial.fitness <- list()
 partial.fitness$biomass <- list()
 partial.fitness$waa <- list()
 
-sim.over <- list()
-sim.over$biomass <- list()
-sim.over$waa <- list()
 
 for (i in 1:length(data.obs$biomass)){
   sp <- names(data.obs$biomass[i])
   sim <- data.sim$biomass[[sp]]
   obs <- data.obs$biomass[[sp]]
   partial.fitness$biomass[[sp]] <- lnorm_m(obs = obs, sim = sim)/dt.timeserie
-  if (mean(sim)>=mean(obs)){sim.over$biomass[[sp]]=1}else{sim.over$biomass[[sp]]=0}
-  
 }
 
 for (i in 1:length(data.obs$waa)){
@@ -109,8 +104,6 @@ for (i in 1:length(data.obs$waa)){
           sim <- data.sim$waa[[sp]]
           obs <- data.obs$waa[[sp]]
           partial.fitness$waa[[sp]] <- lnorm_m(obs = obs, sim = sim)/dt.timeserie
-  if (mean(sim)>=mean(obs)){sim.over$waa[[sp]]=1}else{sim.over$waa[[sp]]=0}
-        
       }
 }
 ```
@@ -137,12 +130,8 @@ print("Average Fitness for each waa indicator is:")
 ### Figure 1:
 ```{r}
 
-biomass_vals <- sort((unlist(partial.fitness$biomass) /dt.timeserie))
-col.biomass = unlist(sim.over$biomass)
-col.biomass = col.biomass[names(biomass_vals)]
-waa_vals <- sort((unlist(partial.fitness$waa) /dt.timeserie))
-col.waa = unlist(sim.over$waa)
-col.waa = col.waa[names(waa_vals)]
+biomass_vals <- sort((unlist(partial.fitness$biomass)))
+waa_vals <- sort((unlist(partial.fitness$waa)))
 
 # Plot 1 
 par(mfrow = c(1, 2), mar = c(2, 4, 2, 1)) 
@@ -180,10 +169,44 @@ abline(h = -log10(2), col = "orange", lty = 2, lwd = 2) # Goal Min
 
 ```
 
+### Figure 2 : Partial fitness
+```{r}
+folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0", 
+                        "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1")
+                          # "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_10_17_2024/i0")
 
+{pf.biomass.group <- names.biomass.group <-c()
+for (i in 1:length(data.obs$biomass)){
+    sp <- names(data.obs$biomass[i])
+    pf.sp <- unlist(partial.fitness$biomass[[sp]])
+    indices <- grep(sp, names(partial.fitness$waa))
+    
+    if (length(indices)>0){
+      waa.names <- names(partial.fitness$waa)[indices]
+      pf.sp <- c(pf.sp, unlist(partial.fitness$waa[waa.names]))
+      waa.names <- gsub(".*[^0-9]([0-9]+)$", "Age \\1", waa.names)
+      plot(as.factor(c("Biomass", waa.names)), (pf.sp), main = sp, ylab = "Partial fitness", xlab = "", lty = 1, las=3)
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+
+    }else{
+      pf.biomass.group <- c(pf.biomass.group,(pf.sp))
+      names.biomass.group <- c(names.biomass.group,sp)
+      
+    }
+
+  }
+plot(as.factor(names.biomass.group), pf.biomass.group, main = "Biomass group", ylab = "Partial fitness", xlab = "", lty = 1, las=3)
+  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
+
+box()
+print("")}
+
+
+
+```
 
 # Comparison of the model states
-### Figure 2
+### Figure 3
 
 ```{r}
 folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1", 
@@ -249,6 +272,7 @@ for (j in 1:length(folder.path)){
     }
   
   waa_vals <- sort((unlist(partial.fitness$waa) /dt.timeserie))
+  waa_vals <- waa_vals[waa_vals>-4]
 
   if (j == 1){
 # # Waa plot
@@ -331,6 +355,7 @@ for (j in 1:length(folder.path)){
   
   if (j == 1){
   waa_vals <- sort((unlist(partial.fitness$waa) /dt.timeserie))
+  waa_vals <- waa_vals[waa_vals>-4]
     order.WAA <- names(waa_vals)
   plot(waa_vals,  col = "grey25",  lwd = 2,  xlab = "Sorted Index",  ylab = "log(sim)-log(obs)",
        main = "WAA Partial Fitness",  cex.lab = 1.2,  cex.main = 1.3, pch = 18)
@@ -348,39 +373,5 @@ for (j in 1:length(folder.path)){
 
 ```
 
-### Figure 4
-```{r}
-folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0", 
-                        "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1")
-                          # "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_10_17_2024/i0")
 
-{pf.biomass.group <- names.biomass.group <-c()
-for (i in 1:length(data.obs$biomass)){
-    sp <- names(data.obs$biomass[i])
-    pf.sp <- unlist(partial.fitness$biomass[[sp]])
-    indices <- grep(sp, names(partial.fitness$waa))
-    
-    if (length(indices)>0){
-      waa.names <- names(partial.fitness$waa)[indices]
-      pf.sp <- c(pf.sp, unlist(partial.fitness$waa[waa.names]))
-      waa.names <- gsub(".*[^0-9]([0-9]+)$", "Age \\1", waa.names)
-      plot(as.factor(c("Biomass", waa.names)), (pf.sp/dt.timeserie), main = sp, ylab = "Partial fitness", xlab = "", lty = 1, las=3)
-  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
-
-    }else{
-      pf.biomass.group <- c(pf.biomass.group,(pf.sp/dt.timeserie))
-      names.biomass.group <- c(names.biomass.group,sp)
-      
-    }
-
-  }
-plot(as.factor(names.biomass.group), pf.biomass.group, main = "Biomass group", ylab = "Partial fitness", xlab = "", lty = 1, las=3)
-  abline(h = 0, col = "black", lty = 2, lwd = 1) # Perfection
-
-box()
-print("")}
-
-
-
-```
 
