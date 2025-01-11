@@ -57,8 +57,8 @@ debug         5       # 0=debuging off, 1=debug fishing, 2=debug discards, 3=deb
 
 title      Puget Sound Atlantis Model
 dt         	12 hour     # 12 hour time step
-tstop      	5475 day    # Stop time after the given period  18255   30yr:  10960   25 yr: 9125   20yr: 7300  15 yr: 5500  10yr:3700  5yr:  1850  3yr: 1100  101yr-- 37000 Test run: 18255
-toutstart  	5110 day       # Output start time
+tstop      	4015 day    # Stop time after the given period  18255   30yr:  10960   25 yr: 9125   20yr: 7300  15 yr: 5500  10yr:3700  5yr:  1850  3yr: 1100  101yr-- 37000 Test run: 18255
+toutstart  	3650 day       # Output start time
 toutinc    	365 day       # Write output with this periodicity
 toutfinc   	365 day     # Write fisheries output with this periodicity
 tburnday   0 day
