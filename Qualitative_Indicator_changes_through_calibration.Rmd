@@ -1,0 +1,265 @@
+---
+title: "Partial fitness exploration"
+output: html_document
+date: "2024-12-09"
+---
+# Partial fitness exploration for the Atlantis Model for Puget Sound
+
+The user needs to adjust the following paths or names:
+```{r}
+library(atlantis2ls)
+library(ggplot2)
+library(reshape2)
+dirs <- list.dirs("/home/atlantis/psatlantismodel/Atlantis_Calibration/", recursive = F)
+
+path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0"
+prefix = "outputFolder/AMPS"
+
+
+```
+
+Transform the simulated data and save then save then in Rdata format so they are rapid to load
+```{r}
+# Sim # 
+
+
+
+for (i in 1:length(dirs)) {
+  
+  path <- paste0(dirs[i], "/i0")
+  fg.file <- paste0(dirs[6], "/i0/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
+  
+  if (dir.exists(path)) {
+    fg <- read.csv(fg.file)
+    
+    if (file.exists(paste0(path, "/", "processed_data.RData"))) {
+      print(paste("Already exists in", path))
+    } else {
+      data.sim <- read_atlantis(path = path, fg.file = fg.file, prefix = prefix)
+      save(data.sim, file = paste0(path, "/", "processed_data.RData"))
+    }
+    
+  } else { 
+    path <- paste0(dirs[i], "/i1")
+    
+    if (dir.exists(path)) {  # Correction ici (if manquait des parenthèses)
+      if (file.exists(paste0(path, "/", "processed_data.RData"))) {
+        print(paste("Already exists in", path))  # Correction ici (parenthèse manquante)
+      } else {
+        data.sim <- read_atlantis(path = path, fg.file = fg.file, prefix = prefix)
+        save(data.sim, file = paste0(path, "/", "processed_data.RData"))
+      }
+    }
+  }
+}
+
+
+```
+Loading the observed data:
+```{r}
+
+data.obs <- list()
+data.obs$biomass <- list()
+data.obs$waa <- list()
+
+obs.files <- list.files("/home/atlantis/psatlantismodel/Atlantis_Calibration/data")
+
+for (i in 1:length(obs.files)){
+  obs.i = read.csv(paste0("/home/atlantis/psatlantismodel/Atlantis_Calibration/data/", 
+                          obs.files[i]))[,2]
+  
+  if (grepl("biomass", obs.files[i])){
+    sp <- obs.files[i]
+    sp <- sub("_biomass\\.csv$", "", sp)
+    sp <-fg$Name[fg$Code==sp]
+    if (length(sp)> 0) {
+      data.obs$biomass[[sp]] = obs.i
+    }
+  }else {
+    sp <- obs.files[i]
+    sp <- sub("_w\\.csv$", "", sp)
+    data.obs$waa[[sp]] = obs.i
+  }
+}
+
+
+```
+
+
+
+```{r}
+Test <- data.frame(RUN = dirs, Collapse = NA, Explosion = NA, Undersized = NA, Oversized = NA)
+# 
+for (i in 1:length(dirs)) {
+  path <- paste0(dirs[i], "/i0")
+  if (dir.exists(path)) {
+    load(paste0(path, "/", "processed_data.RData"))
+    Test$Collapse[i] <- 0
+        
+        
+        # print(path)
+        for (j in 1:length(data.obs$biomass)){
+          names <- names(data.obs$biomass)[j]
+          obs <- data.obs$biomass[[names]]
+          if(!is.null(data.sim$biomass[[names]])){
+            if(mean(data.sim$biomass[[names]])<0.1*(obs[1])){
+            Test$Collapse[i]=Test$Collapse[i]+1
+          }
+          }
+        }
+  } 
+}
+
+# "ChumFSY_Fish",  "CohoDSY_Fish", "CohoOY_Fish", "PinkSY_Fish" are not Test, but there are not in the model when the 
+# fitness is calculated. We decrease all the numbers by 4 
+# Test <- Test[!is.na(Test$Collapse),]
+Test$Collapse <- Test$Collapse - 4
+
+#Explosion
+for (i in 1:length(dirs)) {
+  path <- paste0(dirs[i], "/i0")
+  if (dir.exists(path)) {
+    load(paste0(path, "/", "processed_data.RData"))
+    Test$Explosion[i] <- 0
+        
+        
+        # print(path)
+        for (j in 1:length(data.obs$biomass)){
+          names <- names(data.obs$biomass)[j]
+          obs <- data.obs$biomass[[names]]
+          if(!is.null(data.sim$biomass[[names]])){
+            if(mean(data.sim$biomass[[names]])>10*(obs[1])){
+            Test$Explosion[i]=Test$Explosion[i]+1
+          }
+          }
+        }
+  } 
+}
+
+# MicroZooP and MacroZooP target are arguably too low
+# We decrease all the numbers by 2 
+
+Test$Explosion <- Test$Explosion - 2
+
+
+# Too Oversized
+for (i in 1:length(dirs)) {
+  path <- paste0(dirs[i], "/i0")
+  if (dir.exists(path)) {
+    load(paste0(path, "/", "processed_data.RData"))
+    Test$Oversized[i] <- 0
+        
+        
+                      if(path=="/home/atlantis/psatlantismodel/Atlantis_Calibration//RUN_01_22_2025/i0"){
+            print("Too Big")
+            }
+        for (j in 1:length(data.obs$waa)){
+          names <- names(data.obs$waa)[j]
+          obs <- data.obs$waa[[names]]
+          if(!is.null(data.sim$waa[[names]])){
+            if(mean(data.sim$waa[[names]])>2*(obs[1])){
+            Test$Oversized[i]=Test$Oversized[i]+1
+          if(path=="/home/atlantis/psatlantismodel/Atlantis_Calibration//RUN_01_22_2025/i0"){
+            print(names)
+            }
+          }
+          }
+        }
+  } 
+}
+Test$Oversized <- Test$Oversized - 11 #11 Salmon groups age 2 are not in the model (migration). Their size is an artefact. 
+
+# Too Small
+for (i in 1:length(dirs)) {
+  path <- paste0(dirs[i], "/i0")
+  if (dir.exists(path)) {
+    load(paste0(path, "/", "processed_data.RData"))
+    Test$Undersized[i] <- 0
+        
+                              if(path=="/home/atlantis/psatlantismodel/Atlantis_Calibration//RUN_01_22_2025/i0"){
+            print("Too small")
+            }
+        # print(path)
+        for (j in 1:length(data.obs$waa)){
+          names <- names(data.obs$waa)[j]
+          obs <- data.obs$waa[[names]]
+
+          if(!is.null(data.sim$waa[[names]])){
+            if(mean(data.sim$waa[[names]])<0.5*(obs[1])& (data.sim$waa[[names]][1]>0.0000000000228)){ #Exlude Salmon problem
+            Test$Undersized[i]=Test$Undersized[i]+1
+            if(path=="/home/atlantis/psatlantismodel/Atlantis_Calibration//RUN_01_22_2025/i0"){
+            print(names)
+            }
+          }
+          }
+        }
+  } 
+}
+
+
+Test <- Test[!is.na(Test$Collapse),]
+
+
+Test$RUN <- gsub("/home/atlantis/psatlantismodel/Atlantis_Calibration//RUN_", "", Test$RUN)
+Test$RUN <- as.POSIXct(Test$RUN, format = "%m_%d_%Y")
+Test <- Test[order(Test$RUN), ] 
+Test$Size_Problem <- Test$Undersized + Test$Oversized
+Test$Total <- Test$Undersized + Test$Oversized + Test$Persistence + Test$Explosion
+
+```
+
+
+```{r}
+  # Pour transformer les données en format long
+
+# Conversion de la colonne RUN en format Date
+Test$RUN <- as.Date(Test$RUN, format = "%m_%d_%Y")
+
+# Mise en forme des données au format long pour ggplot
+Test_long <- melt(Test, id.vars = "RUN", 
+                  measure.vars = c("Undersized", "Explosion", "Oversized", "Collapse"),
+                  variable.name = "Species",
+                  value.name = "Value")
+
+# Normalisation des valeurs
+Test_long$Value <- with(Test_long, ifelse(Species == "Undersized" | Species == "Oversized", Value / 3.73, Value / 0.74))
+# Test_long$Value <- with(Test_long, ifelse(Species == "Persistence", Value, 100-Value))
+Test_long$PlotGroup <- ifelse(Test_long$Species %in% c("Undersized", "Oversized"), "A.  Size indicators", "B. Biomass indicators")
+ 
+# Création du plot avec facet_wrap
+ggplot(Test_long, aes(x = RUN, y = Value, color = Species, group = Species)) +
+  geom_line(linewidth = 1) +
+  scale_color_manual(values = c("deepskyblue4", "sienna1", "brown2", "blueviolet")) +
+  labs(x = "", y = "% Indicator") +
+  theme_minimal() +
+  theme(legend.title = element_blank(),
+        strip.text = element_text(size = 12,face = "bold", hjust = 0)) +
+  facet_wrap(~PlotGroup, scales = "free_y")
+
+
+
+```
+
+
+```{r}
+  # Pour transformer les données en format long
+
+# Mise en forme des données au format long pour ggplot
+Test_long <- melt(Test, id.vars = "RUN", 
+                  measure.vars = c("Total"),
+                  variable.name = "Species",
+                  value.name = "Value")
+
+
+# Création du plot ggplot2
+ggplot(Test_long, aes(x = RUN, y = Value/(79+79+373+373)*100, color = Species, group = Species)) +
+  geom_line() +
+  scale_y_continuous(limits = c(1,29))+
+  scale_color_manual(values = c("black")) +
+  labs(x = "", y = "% Indicator") +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+
+
+
+```

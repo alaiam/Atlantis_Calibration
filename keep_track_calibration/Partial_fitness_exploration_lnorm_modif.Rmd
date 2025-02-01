@@ -7,6 +7,7 @@ date: "2024-12-09"
 
 The user needs to adjust the following paths or names:
 ```{r}
+list.dirs("/home/atlantis/psatlantismodel/Atlantis_Calibration/", recursive = F)
 path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0"
 prefix = "outputFolder/AMPS"
 bio.prm = "AMPSbioparam_mv1_2024_V10.prm"
@@ -23,8 +24,8 @@ library(stringr)
 # Objective function #
 lnorm_m = function(obs, sim, tiny=1e-2, ...) {
 if(all(!is.finite(sim))) return(Inf)
-obs = log(obs + tiny)
-sim = log(sim + tiny)
+obs = log10(obs + tiny)
+sim = log10(sim + tiny)
 nlogLike = sum((sim-obs), na.rm=TRUE)
 return(nlogLike)
 }
@@ -171,9 +172,9 @@ abline(h = -log10(2), col = "orange", lty = 2, lwd = 2) # Goal Min
 
 ### Figure 2 : Partial fitness
 ```{r}
-folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0", 
-                        "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1")
-                          # "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_10_17_2024/i0")
+# folder.path <-  c("/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_12_02_2024/i0", 
+#                         "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_13_2024/i1")
+#                           # "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_10_17_2024/i0")
 
 {pf.biomass.group <- names.biomass.group <-c()
 for (i in 1:length(data.obs$biomass)){
