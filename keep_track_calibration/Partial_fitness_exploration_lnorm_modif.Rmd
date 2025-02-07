@@ -8,7 +8,7 @@ date: "2024-12-09"
 The user needs to adjust the following paths or names:
 ```{r}
 list.dirs("/home/atlantis/psatlantismodel/Atlantis_Calibration/", recursive = F)
-path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0"
+path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_02_04_2025/i0"
 prefix = "outputFolder/AMPS"
 bio.prm = "AMPSbioparam_mv1_2024_V10.prm"
 fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
@@ -123,6 +123,9 @@ print("Average Fitness for each biomass indicator is:")
 (sum(abs(unlist(partial.fitness$biomass)))/74)
 print("Average Fitness for each waa indicator is:")
 (sum(abs(unlist(partial.fitness$waa)))/(318))
+plot(density(unlist(partial.fitness$waa)))
+plot(density(unlist(partial.fitness$biomass)))
+
 ```
 
 
