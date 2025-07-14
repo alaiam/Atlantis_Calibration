@@ -1,0 +1,173 @@
+---
+title: "Param evolution"
+output: html_document
+date: "2025-03-28"
+---
+
+# Partial fitness exploration for the Atlantis Model for Puget Sound
+
+The user needs to adjust the following paths or names:
+```{r}
+library(atlantis2ls)
+library(ggplot2)
+library(reshape2)
+library(dplyr)
+library(grid)
+library(gridExtra)
+library(stringr)
+library(cowplot)
+dirs <- list.dirs("/home/atlantis/psatlantismodel/Atlantis_Calibration/", recursive = F)
+
+path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0"
+prefix = "outputFolder/AMPS"
+
+
+```
+
+Transform the simulated data and save then save then in Rdata format so they are rapid to load
+```{r}
+# Sim # 
+
+
+param <- read.csv("~/psatlantismodel/Atlantis_Calibration/calibration-parameters-complete.csv")$names
+param <- gsub( "_factor", "", param)
+param <- gsub( "factor_", "", param)
+param[4:22] <- paste0(param[4:22], "_T15")
+
+
+results <- data.frame(param = param)
+for (i in 1:(length(dirs)-1)) {
+  
+  path <- paste0(dirs[i], "/i0")
+  fg.file <- paste0(dirs[6], "/i0/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
+
+  values <- c()
+  if (dir.exists(path)) {
+    fg <- read.csv(fg.file)
+    bio.prm = paste0(path, "/bio.prm")
+    bio.lines = readLines(bio.prm)
+  
+  
+    results <- cbind(results, rep(0, length(param)))
+    for (j in 1:length(param)){
+      
+      bio.lines.id = grep(param[j], bio.lines)
+      bio.lines[bio.lines.id]
+      if (regexpr("mQ", param[j])[1]>0){
+       values <- c(values, as.numeric(sub(".*\t", "", bio.lines[bio.lines.id]))[1]) 
+      }
+      if (regexpr("mum", param[j])[1]>0 & regexpr("T15", param[j])[1]>0){
+         values <- c(values, as.numeric(sub(".*\\s+", "", bio.lines[bio.lines.id]))[1]) 
+      }
+      if (regexpr("mum", param[j])[1]>0 & regexpr("T15", param[j])[1]<0){
+         values <- c(values, as.numeric(word(bio.lines[bio.lines.id+2], sep = " "))) 
+      }
+      
+      if (regexpr("BHalpha", param[j])[1]>0){
+         values <- c(values, as.numeric(sub(".*\\s+", "", bio.lines[bio.lines.id]))[1]) 
+      }
+      if (regexpr("KDENR", param[j])[1]>0){
+         values <- c(values, as.numeric(bio.lines[bio.lines.id+2])[1])
+      }
+
+    }
+    
+    results[,dim(results)[2]] <- values
+    names(results)[dim(results)[2]] <- word(path,7,sep = "/")
+  }
+}
+
+melted_results <- reshape2::melt(results)   
+melted_results$variable <- gsub("RUN_", "", melted_results$variable)
+melted_results$variable <- as.POSIXct(melted_results$variable, format = "%m_%d_%Y")
+melted_results$variable <- as.Date(melted_results$variable, format = "%m_%d_%Y")
+unique(melted_results$variable)
+
+for (i in 1:127){
+  if(sum(is.na(results[i,-1]))<5){
+    a <- melted_results[melted_results$param == results[i,1],]
+      plot(a$variable, a$value/a$value[a$variable=="2024-10-17"], main = paste0(results[i,1]), 
+           xlab = "Calibration period", ylab = "Ratio with initial parameter value")
+  }
+}
+
+a <- melted_results[melted_results$param == results[1,1],]
+plot(a$variable, log10(a$value/a$value[a$variable=="2024-10-17"]), main = "Parameter trace", 
+                xlab = "Calibration period", ylab = "Ratio with initial parameter value", ylim = c(-3.6,2), type = "l")
+abline(v = unique(melted_results$variable), col = "red", lty = 2)
+for (i in 1:127){
+  if(sum(is.na(results[i,-1]))<5){
+    a <- melted_results[melted_results$param == results[i,1],]
+      lines(sort(a$variable), log10(a$value[order(a$variable)]/a$value[a$variable=="2024-10-17"]), main = paste0(results[i,1]), 
+           xlab = "Calibration period", ylab = "log(final value/initial value)")
+  }
+}
+
+melted_results2 <- melted_results %>%
+  group_by(param) %>%
+  mutate(relative_chgmt = log10(value / value[variable == "2024-12-20"]))%>%
+  filter(variable>= "2024-12-20")
+a <- melted_results2[melted_results2$param == results[1,1],]
+plot(a$variable, a$relative_chgmt, main = "Parameter trace", 
+                xlab = "Calibration period", ylab = "log(final value/initial value)", ylim = c(-1.8,1.5), type = "l")
+abline(v = unique(melted_results$variable), col = "red", lty = 2)
+for (i in 1:127){
+  if(sum(is.na(results[i,-1]))<5){
+    a <- melted_results2[melted_results2$param == results[i,1],]
+      lines(sort(a$variable), (a$relative_chgmt[order(a$variable)]), main = paste0(results[i,1]), 
+           xlab = "Calibration period", ylab = "log(final value/initial value)")
+  }
+}
+
+
+
+```
+```{r fig1, fig.height = 7, fig.width = 8}
+melted_results2 <-melted_results %>%
+  group_by(param) %>%
+  mutate(relative_chgmt = log10(value / value[variable == "2024-10-17"]))
+melted_results2$type <- word(melted_results2$param, sep ="_")
+melted_results2$type[!melted_results2$type%in%c("mum", "BHalpha", "KDENR")]<- "mQ"
+melted_results2<- melted_results2[melted_results2$variable=="2025-02-04",]
+
+par(mfrow = c(2,2))
+x <- melted_results2$relative_chgmt[melted_results2$type == "KDENR"]
+
+hist(x, breaks = 10, , xaxt = "n",
+     main = "KDENR Calibration Factors",
+     xlab = "Calibration Factor", ylab = "Frequency", 
+     col = "grey80", border = "white")
+axis(1, at = c(-2, -1, 0, 1, 2 ), labels = c("0.01", "0.1", "1", "10", "100"))
+abline(v = 0, col = "red", lty = 2)
+
+x <- melted_results2$relative_chgmt[melted_results2$type == "mQ"]
+
+hist(x, breaks = 10, , xaxt = "n",
+     main = "mQ Calibration Factors",
+     xlab = "Calibration Factor", ylab = "Frequency", 
+     col = "grey80", border = "white")
+axis(1, at = c(-2, -1, 0, 1, 2 ), labels = c("0.01", "0.1", "1", "10", "100"))
+abline(v = 0, col = "red", lty = 2)
+
+x <- melted_results2$relative_chgmt[melted_results2$type == "BHalpha"]
+
+hist(x, breaks = 10, , xaxt = "n",
+     main = "BHalpha Calibration Factors",
+     xlab = "Calibration Factor", ylab = "Frequency", 
+     col = "grey80", border = "white")
+axis(1, at = c(-4, -3, -2, -1, 0, 1, 2 ), labels = c("0.0001","0.001", "0.01", "0.1", "1", "10", "100"))
+abline(v = 0, col = "red", lty = 2)
+
+x <- melted_results2$relative_chgmt[melted_results2$type == "mum"]
+
+hist(x, breaks = 10, , xaxt = "n",
+     main = "mum Calibration Factors",
+     xlab = "Calibration Factor", ylab = "Frequency", 
+     col = "grey80", border = "white")
+axis(1, at = c(-4, -3, -2, -1, 0, 1, 2 ), labels = c("0.0001","0.001", "0.01", "0.1", "1", "10", "100"))
+abline(v = 0, col = "red", lty = 2)
+
+
+#TODO: mum vs obs waa
+```
+

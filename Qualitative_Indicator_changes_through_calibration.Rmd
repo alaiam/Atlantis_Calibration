@@ -10,6 +10,10 @@ The user needs to adjust the following paths or names:
 library(atlantis2ls)
 library(ggplot2)
 library(reshape2)
+library(dplyr)
+library(grid)
+library(gridExtra)
+library(cowplot)
 dirs <- list.dirs("/home/atlantis/psatlantismodel/Atlantis_Calibration/", recursive = F)
 
 path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0"
@@ -113,7 +117,7 @@ for (i in 1:length(dirs)) {
 # "ChumFSY_Fish",  "CohoDSY_Fish", "CohoOY_Fish", "PinkSY_Fish" are not Test, but there are not in the model when the 
 # fitness is calculated. We decrease all the numbers by 4 
 # Test <- Test[!is.na(Test$Collapse),]
-Test$Collapse <- Test$Collapse - 4
+Test$Collapse <- Test$Collapse - 3
 
 #Explosion
 for (i in 1:length(dirs)) {
@@ -204,62 +208,221 @@ Test$RUN <- gsub("/home/atlantis/psatlantismodel/Atlantis_Calibration//RUN_", ""
 Test$RUN <- as.POSIXct(Test$RUN, format = "%m_%d_%Y")
 Test <- Test[order(Test$RUN), ] 
 Test$Size_Problem <- Test$Undersized + Test$Oversized
-Test$Total <- Test$Undersized + Test$Oversized + Test$Persistence + Test$Explosion
+Test$Total <- Test$Undersized + Test$Oversized + Test$Collapse + Test$Explosion
 
 ```
 
 
-```{r}
+```{r fig1, fig.height = 8, fig.width = 7}
   # Pour transformer les données en format long
-
 # Conversion de la colonne RUN en format Date
 Test$RUN <- as.Date(Test$RUN, format = "%m_%d_%Y")
 
 # Mise en forme des données au format long pour ggplot
 Test_long <- melt(Test, id.vars = "RUN", 
-                  measure.vars = c("Undersized", "Explosion", "Oversized", "Collapse"),
+                  measure.vars = c( "Collapse" , "Explosion", "Undersized","Oversized"),
                   variable.name = "Species",
                   value.name = "Value")
 
 # Normalisation des valeurs
-Test_long$Value <- with(Test_long, ifelse(Species == "Undersized" | Species == "Oversized", Value / 3.73, Value / 0.74))
-# Test_long$Value <- with(Test_long, ifelse(Species == "Persistence", Value, 100-Value))
-Test_long$PlotGroup <- ifelse(Test_long$Species %in% c("Undersized", "Oversized"), "A.  Size indicators", "B. Biomass indicators")
- 
-# Création du plot avec facet_wrap
+Test_long$Value <- with(Test_long, ifelse(Species %in% c("Undersized", "Oversized"), Value / 3.73, Value / 0.74))
+
+# Attribution des groupes pour les facettes
+Test_long$PlotGroup <- ifelse(Test_long$Species %in% c("Undersized", "Oversized"), "B. Size indicators", "A. Biomass indicators")
+
+# Couleurs améliorées
+colors <- c("Collapse" = "#E41A1C", "Explosion" = "#377EB8", 
+            "Undersized" = "#FF7F00", "Oversized" = "#4DAF4A")
+# Création du plot avec espacement amélioré
 ggplot(Test_long, aes(x = RUN, y = Value, color = Species, group = Species)) +
   geom_line(linewidth = 1) +
-  scale_color_manual(values = c("deepskyblue4", "sienna1", "brown2", "blueviolet")) +
-  labs(x = "", y = "% Indicator") +
+  scale_color_manual(values = colors) +
+  labs(x = "Calibration time", y = "% Indicator") +
   theme_minimal() +
   theme(legend.title = element_blank(),
-        strip.text = element_text(size = 12,face = "bold", hjust = 0)) +
-  facet_wrap(~PlotGroup, scales = "free_y")
+        strip.text = element_text(size = 12, face = "bold", hjust = 0),
+        panel.spacing = unit(1.5, "lines")) +  # Augmente l'espace entre les facettes
+  facet_wrap(~PlotGroup, scales = "free_y", nrow = 2)  
+
 
 
 
 ```
 
+
+```{r fig1, fig.height = 9, fig.width = 9}
+# Fonction de plot de comparaison
+plot_comparison_gg <- function(obs, sim, title, tolerance_lines = c(-1, 1)) {
+  df <- data.frame(obs = log10(obs), sim = log10(sim))
+  
+  r2 <- 1 - sum((log10(obs) - log10(sim + 1e-9))^2) / sum((log10(sim + 1e-9) - mean(log10(obs)))^2)
+  r2_label <- paste0("R² = ", format(round(r2, 2), nsmall = 2))
+
+  ggplot(df, aes(x = obs, y = sim)) +
+    geom_point(color = rgb(0, 0, 0, 0.6), size = 2) +
+    geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed", linewidth = 1.2) +
+    geom_abline(slope = 1, intercept = tolerance_lines, color = "grey40", linetype = "dotted", linewidth = 1) +
+    annotate("text", x = min(df$obs), y = max(df$sim) * 0.9, label = r2_label, hjust = 0, size = 5, fontface = "bold") +
+    labs(title = title, x = "log(Observed)", y = "log(Simulated)") +
+    theme_minimal(base_size = 14) +
+    theme(plot.title = element_text(hjust = 0.5, face = "plain"),
+          axis.text = element_text(size = 12))
+}
+
+# Charger les données du premier run
+dirs <- "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_10_17_2024/i0"
+load(paste0(dirs, "/processed_data.RData"))
+
+# Comparaison Biomasse
+biomass_compare <- data.frame(
+  Species = sort(names(data.obs$biomass)),
+  Biomass.obs = unlist(lapply(data.obs$biomass, FUN = mean)[sort(names(data.obs$biomass))]),
+  Biomass.sim = unlist(lapply(data.sim$biomass, FUN = mean)[sort(names(data.obs$biomass))])
+)
+p1 <- plot_comparison_gg(biomass_compare$Biomass.obs, biomass_compare$Biomass.sim, "A. Before calibration")
+
+# Comparaison Weight-at-Age
+waa_compare <- data.frame(
+  Species = sort(names(data.obs$waa)),
+  waa.obs = unlist(lapply(data.obs$waa, FUN = mean)[sort(names(data.obs$waa))]),
+  waa.sim = unlist(lapply(data.sim$waa, FUN = mean)[sort(names(data.obs$waa))])
+)
+waa_compare <- waa_compare[log(waa_compare$waa.sim) > -6, ]
+p2 <- plot_comparison_gg(waa_compare$waa.obs, waa_compare$waa.sim, "C. Before calibration", tolerance_lines = c(-0.3, 0.3))
+
+# Charger les données du deuxième run
+dirs <- "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_02_04_2025/i0"
+load(paste0(dirs, "/processed_data.RData"))
+
+# Comparaison Biomasse après calibration
+biomass_compare <- data.frame(
+  Species = sort(names(data.obs$biomass)),
+  Biomass.obs = unlist(lapply(data.obs$biomass, FUN = mean)[sort(names(data.obs$biomass))]),
+  Biomass.sim = unlist(lapply(data.sim$biomass, FUN = mean)[sort(names(data.obs$biomass))])
+)
+p3 <- plot_comparison_gg(biomass_compare$Biomass.obs, biomass_compare$Biomass.sim, "B. After calibration")
+
+# Comparaison Weight-at-Age après calibration
+waa_compare <- data.frame(
+  Species = sort(names(data.obs$waa)),
+  waa.obs = unlist(lapply(data.obs$waa, FUN = mean)[sort(names(data.obs$waa))]),
+  waa.sim = unlist(lapply(data.sim$waa, FUN = mean)[sort(names(data.obs$waa))])
+)
+waa_compare <- waa_compare[log(waa_compare$waa.sim) > -6, ]
+p4 <- plot_comparison_gg(waa_compare$waa.obs, waa_compare$waa.sim, "D. After calibration", tolerance_lines = c(-0.3, 0.3))
+
+# Ajouter des étiquettes pour "Biomass" et "Weight-at-age"
+biomass_label <- ggdraw() + draw_label("Biomass", fontface = "bold", size = 16)
+waa_label <- ggdraw() + draw_label("Weight-at-age", fontface = "bold", size = 16)
+
+# Ajouter des labels d'axes
+x_label <- ggdraw() + draw_label("log(Observed)", size = 14)
+y_label <- ggdraw() + draw_label("log(Simulated)", size = 14, angle = 90)
+
+# Réorganiser l'affichage pour mettre Biomass en haut et Weight-at-age en bas
+final_plot <- plot_grid(p1, p3, p2, p4, ncol = 2, nrow = 2, align = "hv")
+
+# Affichage final avec les étiquettes pour "Biomass" et "Weight-at-age"
+plot_grid(biomass_label, 
+          plot_grid(p1, p3, ncol = 2, align = "hv"), 
+          waa_label, 
+          plot_grid(p2, p4, ncol = 2, align = "hv"), 
+          ncol = 1, 
+          rel_heights = c( 0.1, 1, 0.1, 1))
+
+
+
+```
+
+
+```{r fig1, fig.height = 9, fig.width = 9}
+# Fonction de plot de comparaison
+plot_comparison_gg <- function(obs, sim, title, tolerance_lines = c(-1, 1)) {
+  df <- data.frame(obs = log10(obs), sim = log10(sim+0.000001))
+  df$res <- df$sim-df$obs
+
+    mean_res <- mean(df$res)
+  mean_res_label <- paste0("mean = ", format(round(mean_res, 2), nsmall = 2))
+
+  
+  
+  ggplot(df, aes(x = obs, y = res)) +
+    geom_point(color = rgb(0, 0, 0, 0.6), size = 2) +
+    geom_abline(slope = 0, intercept = 0, color = "red", linetype = "dashed", linewidth = 1.2) +
+    annotate("text", x = min(df$obs), y = 2, label = mean_res_label, hjust = 0, size = 5)+
+    stat_smooth(method="loess", se=FALSE, color="green", 
+              lty=2, show.legend=TRUE)+
+    labs(title = title, x = "log(Observed)", y = "log(Simulated)") +
+    theme_minimal(base_size = 14) +
+    theme(plot.title = element_text(hjust = 0.5, face = "plain"),
+          axis.text = element_text(size = 12))
+}
+
+# Charger les données du premier run
+dirs <- "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_10_17_2024/i0"
+load(paste0(dirs, "/processed_data.RData"))
+
+# Comparaison Biomasse
+biomass_compare <- data.frame(
+  Species = sort(names(data.obs$biomass)),
+  Biomass.obs = unlist(lapply(data.obs$biomass, FUN = mean)[sort(names(data.obs$biomass))]),
+  Biomass.sim = unlist(lapply(data.sim$biomass, FUN = mean)[sort(names(data.obs$biomass))])
+)
+p1 <- plot_comparison_gg(biomass_compare$Biomass.obs, biomass_compare$Biomass.sim, "A. Before calibration")
+
+# Comparaison Weight-at-Age
+waa_compare <- data.frame(
+  Species = sort(names(data.obs$waa)),
+  waa.obs = unlist(lapply(data.obs$waa, FUN = mean)[sort(names(data.obs$waa))]),
+  waa.sim = unlist(lapply(data.sim$waa, FUN = mean)[sort(names(data.obs$waa))])
+)
+waa_compare <- waa_compare[log(waa_compare$waa.sim) > -6, ]
+p2 <- plot_comparison_gg(waa_compare$waa.obs, waa_compare$waa.sim, "C. Before calibration")
+
+# Charger les données du deuxième run
+dirs <- "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_02_04_2025/i0"
+load(paste0(dirs, "/processed_data.RData"))
+
+# Comparaison Biomasse après calibration
+biomass_compare <- data.frame(
+  Species = sort(names(data.obs$biomass)),
+  Biomass.obs = unlist(lapply(data.obs$biomass, FUN = mean)[sort(names(data.obs$biomass))]),
+  Biomass.sim = unlist(lapply(data.sim$biomass, FUN = mean)[sort(names(data.obs$biomass))])
+)
+p3 <- plot_comparison_gg(biomass_compare$Biomass.obs, biomass_compare$Biomass.sim, "B. After calibration")
+
+# Comparaison Weight-at-Age après calibration
+waa_compare <- data.frame(
+  Species = sort(names(data.obs$waa)),
+  waa.obs = unlist(lapply(data.obs$waa, FUN = mean)[sort(names(data.obs$waa))]),
+  waa.sim = unlist(lapply(data.sim$waa, FUN = mean)[sort(names(data.obs$waa))])
+)
+waa_compare <- waa_compare[log(waa_compare$waa.sim) > -6, ]
+p4 <- plot_comparison_gg(waa_compare$waa.obs, waa_compare$waa.sim, "D. After calibration")
+
+# Ajouter des étiquettes pour "Biomass" et "Weight-at-age"
+biomass_label <- ggdraw() + draw_label("Biomass residuals", fontface = "bold", size = 16)
+waa_label <- ggdraw() + draw_label("Weight-at-age residuals", fontface = "bold", size = 16)
+
+# Ajouter des labels d'axes
+x_label <- ggdraw() + draw_label("log(Observed)", size = 14)
+y_label <- ggdraw() + draw_label("log(Simulated)", size = 14, angle = 90)
+
+# Réorganiser l'affichage pour mettre Biomass en haut et Weight-at-age en bas
+final_plot <- plot_grid(p1, p3, p2, p4, ncol = 2, nrow = 2, align = "hv")
+
+# Affichage final avec les étiquettes pour "Biomass" et "Weight-at-age"
+plot_grid(biomass_label, 
+          plot_grid(p1, p3, ncol = 2, align = "hv"), 
+          waa_label, 
+          plot_grid(p2, p4, ncol = 2, align = "hv"), 
+          ncol = 1, 
+          rel_heights = c( 0.1, 1, 0.1, 1))
+
+
+```
 
 ```{r}
-  # Pour transformer les données en format long
-
-# Mise en forme des données au format long pour ggplot
-Test_long <- melt(Test, id.vars = "RUN", 
-                  measure.vars = c("Total"),
-                  variable.name = "Species",
-                  value.name = "Value")
-
-
-# Création du plot ggplot2
-ggplot(Test_long, aes(x = RUN, y = Value/(79+79+373+373)*100, color = Species, group = Species)) +
-  geom_line() +
-  scale_y_continuous(limits = c(1,29))+
-  scale_color_manual(values = c("black")) +
-  labs(x = "", y = "% Indicator") +
-  theme_minimal() +
-  theme(legend.title = element_blank())
-
-
 
 ```
+

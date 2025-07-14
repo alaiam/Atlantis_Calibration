@@ -28,6 +28,7 @@ We open them:
 ```{r pressure, echo=FALSE}
 
 path <- here("psatlantismodel/Atlantis_Calibration/keep_track_calibration")
+path <- "keep_track_calibration"
 files <- list.files(path)
 filtered_list <- files[grepl("\\.results$", files)]
 calib_results <- c()
@@ -36,7 +37,7 @@ sorted_list <- filtered_list[order(numbers)]
 for (file in sorted_list) {
   print(paste("Opening of:", file))
   a <- readRDS(paste(path, file, sep = "/"))
-  print(a$trace$best)
+  print(a$trace$value)
   calib_results[[file]] <- a$trace$value
 }
 
@@ -93,7 +94,7 @@ df_long <- df %>%
   pivot_longer(cols = c(Fitness, Mean_Relative_Error), names_to = "Metric", values_to = "Value")
 
 # Define pretty labels
-metric_labels <- c("Fitness" = "A.  Total Fitness", "Mean_Relative_Error" = "B.  Mean Relative Error per target")
+metric_labels <- c("Fitness" = "A.  Negative log-likelihood", "Mean_Relative_Error" = "B.  Mean Relative Error per target")
 
 # Create the plot
 ggplot(df_long, aes(x = Generation, y = Value)) +
