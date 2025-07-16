@@ -123,51 +123,89 @@ for (i in 1:127){
 
 ```
 ```{r fig1, fig.height = 7, fig.width = 8}
-melted_results2 <-melted_results %>%
-  group_by(param) %>%
-  mutate(relative_chgmt = log10(value / value[variable == "2024-10-17"]))
-melted_results2$type <- word(melted_results2$param, sep ="_")
-melted_results2$type[!melted_results2$type%in%c("mum", "BHalpha", "KDENR")]<- "mQ"
-melted_results2<- melted_results2[melted_results2$variable=="2025-02-04",]
+par(mfrow = c(2,2), oma = c(1, 1, 4, 1))  # Outer margins added for global title
 
-par(mfrow = c(2,2))
+# KDENR
 x <- melted_results2$relative_chgmt[melted_results2$type == "KDENR"]
-
-hist(x, breaks = 10, , xaxt = "n",
-     main = "KDENR Calibration Factors",
-     xlab = "Calibration Factor", ylab = "Frequency", 
+hist(x, breaks = 10, xaxt = "n",
+     main = "Offspring per adult (KDENR)",
+     xlab = "Calibration Factor", ylab = "Frequency",
      col = "grey80", border = "white")
-axis(1, at = c(-2, -1, 0, 1, 2 ), labels = c("0.01", "0.1", "1", "10", "100"))
+axis(1, at = c(-2, -1, 0, 1, 2), labels = c("0.01", "0.1", "1", "10", "100"))
 abline(v = 0, col = "red", lty = 2)
 
+# mQ
 x <- melted_results2$relative_chgmt[melted_results2$type == "mQ"]
-
-hist(x, breaks = 10, , xaxt = "n",
-     main = "mQ Calibration Factors",
-     xlab = "Calibration Factor", ylab = "Frequency", 
+hist(x, breaks = 10, xaxt = "n",
+     main = "Quadratic mortality (mQ)",
+     xlab = "Calibration Factor", ylab = "Frequency",
      col = "grey80", border = "white")
-axis(1, at = c(-2, -1, 0, 1, 2 ), labels = c("0.01", "0.1", "1", "10", "100"))
+axis(1, at = c(-2, -1, 0, 1, 2), labels = c("0.01", "0.1", "1", "10", "100"))
 abline(v = 0, col = "red", lty = 2)
 
+# BHalpha
 x <- melted_results2$relative_chgmt[melted_results2$type == "BHalpha"]
-
-hist(x, breaks = 10, , xaxt = "n",
-     main = "BHalpha Calibration Factors",
-     xlab = "Calibration Factor", ylab = "Frequency", 
+hist(x, breaks = 10, xaxt = "n",
+     main = "Stock capacity (BHalpha)",
+     xlab = "Calibration Factor", ylab = "Frequency",
      col = "grey80", border = "white")
-axis(1, at = c(-4, -3, -2, -1, 0, 1, 2 ), labels = c("0.0001","0.001", "0.01", "0.1", "1", "10", "100"))
+axis(1, at = c(-4, -3, -2, -1, 0, 1, 2), labels = c("0.0001","0.001", "0.01", "0.1", "1", "10", "100"))
 abline(v = 0, col = "red", lty = 2)
 
+# mum
 x <- melted_results2$relative_chgmt[melted_results2$type == "mum"]
-
-hist(x, breaks = 10, , xaxt = "n",
-     main = "mum Calibration Factors",
-     xlab = "Calibration Factor", ylab = "Frequency", 
+hist(x, breaks = 10, xaxt = "n",
+     main = "Maximum ingestion (mum)",
+     xlab = "Calibration Factor", ylab = "Frequency",
      col = "grey80", border = "white")
-axis(1, at = c(-4, -3, -2, -1, 0, 1, 2 ), labels = c("0.0001","0.001", "0.01", "0.1", "1", "10", "100"))
+axis(1, at = c(-4, -3, -2, -1, 0, 1, 2), labels = c("0.0001","0.001", "0.01", "0.1", "1", "10", "100"))
 abline(v = 0, col = "red", lty = 2)
+
+# Global title
+mtext("Distribution of calibration factors (log10 scale)", outer = TRUE, cex = 1.2 , font = 2, adj = 0.55)
+
 
 
 #TODO: mum vs obs waa
+```
+```{r}
+library(ggplot2)
+library(dplyr)
+library(forcats)
+
+# Filtrer la bonne date et reformater la variable type
+plot_data <- melted_results %>%
+  group_by(param) %>%
+  mutate(relative_chgmt = log10(value / value[variable == "2024-10-17"])) %>%
+  ungroup() %>%
+  mutate(type = word(param, sep = "_")) %>%
+  mutate(type = ifelse(type %in% c("mum", "BHalpha", "KDENR"), type, "mQ")) %>%
+  filter(variable == "2025-02-04")
+
+# Labels log10 (base 10) pour l’axe
+log_labels <- c("0.0001", "0.001", "0.01", "0.1", "1", "10", "100")
+log_breaks <- log10(as.numeric(log_labels))
+
+# Créer le plot
+ggplot(plot_data, aes(x = relative_chgmt)) +
+  geom_histogram(bins = 20, fill = "grey80", color = "white") +
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed", linewidth = 1) +
+  scale_x_continuous(
+    breaks = log_breaks,
+    labels = log_labels,
+    name = "Calibration Factor (log10 scale)"
+  ) +
+  facet_wrap(~ type, scales = "free_y", ncol = 2) +
+  labs(y = "Frequency") +
+  theme_minimal(base_size = 14) +
+  theme(
+    strip.text = element_text(face = "bold", size = 13),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 13),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_line(color = "gray90"),
+    panel.grid.major.y = element_line(color = "gray90")
+  )
+
 ```
 
