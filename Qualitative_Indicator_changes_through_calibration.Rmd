@@ -14,6 +14,7 @@ library(dplyr)
 library(grid)
 library(gridExtra)
 library(cowplot)
+library(scales)
 dirs <- list.dirs("/home/atlantis/psatlantismodel/Atlantis_Calibration/", recursive = F)
 
 path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN/i0"
@@ -212,7 +213,7 @@ Test$Total <- Test$Undersized + Test$Oversized + Test$Collapse + Test$Explosion
 
 ```
 
-
+# Figure 4
 ```{r fig1, fig.height = 8, fig.width = 7}
 library(ggplot2)
 library(reshape2)
@@ -262,7 +263,54 @@ ggplot(Test_long, aes(x = RUN, y = Value, color = Species, group = Species)) +
 
 
 ```
+```{r fig1, fig.height = 8, fig.width = 7}
 
+
+# Formatage de la date
+Test$RUN <- as.Date(Test$RUN, format = "%m_%d_%Y")
+
+# Calcul du temps écoulé (en jours)
+Test$Elapsed <- as.numeric(difftime(Test$RUN, min(Test$RUN), units = "days"))/30
+
+# Mise en format long
+Test_long <- melt(Test, id.vars = c("RUN", "Elapsed"), 
+                  measure.vars = c("Collapse", "Explosion", "Undersized", "Oversized"),
+                  variable.name = "Species", value.name = "Value")
+
+# Normalisation
+Test_long$Value <- with(Test_long, ifelse(Species %in% c("Undersized", "Oversized"), Value / 3.73, Value / 0.74))
+
+# Attribution des groupes pour les facettes
+Test_long$PlotGroup <- ifelse(Test_long$Species %in% c("Undersized", "Oversized"),
+                              "B. Size indicators", "A. Biomass indicators")
+
+# Couleurs raffinées
+colors <- c(
+  "Collapse"   = "#E69F00",  # dark orange
+  "Explosion"  = "#56B4E9",  # sky blue
+  "Undersized" = "#009E73",  # bluish green
+  "Oversized"  = "#D55E00"   # reddish orange
+)
+
+# Graphique avec temps écoulé
+ggplot(Test_long, aes(x = Elapsed, y = Value, color = Species, group = Species)) +
+  geom_line(linewidth = 1.2) +
+  scale_color_manual(values = colors) +
+  labs(x = "Time since start of calibration (Months)", y = "Indicator (%)") +
+  facet_wrap(~PlotGroup, scales = "free_y", nrow = 2) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.title = element_blank(),
+    legend.position = "top",
+    strip.text = element_text(size = 13, face = "bold", hjust = 0),
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    panel.spacing = unit(2, "lines")
+  )
+
+```
+
+# Figure 5
 
 ```{r fig1, fig.height = 9, fig.width = 9}
 # Fonction de plot de comparaison
@@ -276,7 +324,7 @@ plot_comparison_gg <- function(obs, sim, title, tolerance_lines = c(-1, 1), xlim
     geom_point(color = rgb(0, 0, 0, 0.6), size = 2) +
     geom_abline(slope = 1, intercept = 0, color = "red", linetype = "dashed", linewidth = 1.2) +
     xlim(xlim) + ylim(ylim) + 
-    geom_abline(slope = 1, intercept = tolerance_lines, color = "grey40", linetype = "dotted", linewidth = 1) +
+    geom_abline(slope = 1, intercept = tolerance_lines, color = "grey40", linetype = "dashed", linewidth = 1) +
     annotate("text", x = min(df$obs), y = max(df$sim) * 0.9, label = r2_label, hjust = 0, size = 5, fontface = "bold") +
     labs(title = title, x = "log(Observed)", y = "log(Simulated)") +
     theme_minimal(base_size = 14) +

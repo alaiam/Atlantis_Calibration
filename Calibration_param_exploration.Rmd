@@ -122,6 +122,8 @@ for (i in 1:127){
 
 
 ```
+
+# Figure 6
 ```{r fig1, fig.height = 7, fig.width = 8}
 par(mfrow = c(2,2), oma = c(1, 1, 4, 1))  # Outer margins added for global title
 

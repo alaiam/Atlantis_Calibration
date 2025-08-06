@@ -60,21 +60,7 @@ for (file in names(calib_results)) {
 }
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r}
-{par(mfrow = c(1,2))
-plot(c(unlist(calib_results)[-(1:5)]), type = "l", 
-     xlab = "Calibration generations", ylab = "Fitness", ylim = c(0,12000), main = "Total fitness")
-plot(10^(c(unlist(calib_results)[-(1:5)]/447/2)^0.5), type = "l", 
-     xlab = "Calibration generations", ylab = "Mean relative error", ylim = c(0,4300), main = "Mean relative error per target")}
-
-
-```
-
-Better plots in ggplot
+Morell et al. in prep, Figure 3
 ```{r}
 
 # Extract calibration results, removing the first 5 elements
@@ -101,7 +87,7 @@ ggplot(df_long, aes(x = Generation, y = Value)) +
   geom_line(color = "steelblue", linewidth = 1) +
   facet_wrap(~ Metric, scales = "free_y", labeller = labeller(Metric = metric_labels)) +
   theme_minimal(base_size = 14) +
-  labs(x = "Calibration Generations", y = NULL) +
+  labs(x = "Number of Optimisation Iterations", y = NULL) +
   theme(
     strip.text = element_text(size = 12, face = "bold", hjust = 0),
     panel.grid.major = element_line(color = "gray95"),
@@ -110,8 +96,4 @@ ggplot(df_long, aes(x = Generation, y = Value)) +
 ```
 
 
-
-```{r}
-
-```
 
