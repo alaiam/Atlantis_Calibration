@@ -27,7 +27,7 @@ runModel  = function(param, names, ...) {
       species <- sub("mum_", "", species)
       species <- sub("_factor", "", species)
 
-      bio.lines = edit_param_mum_sp(bio.lines, factor, species)
+      bio.lines = atlantis2ls::edit_param_mum_sp(bio.lines, factor, species)
     }
     for (i in 1:length(BHalpha.factor)){
       species <- names[BHalpha.factor[i]]
@@ -35,7 +35,7 @@ runModel  = function(param, names, ...) {
       species <- sub("BHalpha_", "", species)
       species <- sub("_factor", "", species)
       
-      bio.lines = edit_param_BHalpha_sp(bio.lines, factor, species)
+      bio.lines = atlantis2ls::edit_param_BHalpha_sp(bio.lines, factor, species)
     }
     
     for (i in 1:length(KDENR.factor)){
@@ -64,7 +64,7 @@ path = getwd()
 ##########################################################################################
     # run Atlantis
     sh.file = "amps_cal.sh"
-    run_atlantis(path = path, sh.file = sh.file)
+    atlantis2ls::run_atlantis(path = path, sh.file = sh.file)
 
 
 ##########################################################################################
@@ -83,7 +83,7 @@ path = getwd()
     # volumes <- ncdf4::ncvar_get(nc, "volume")
     # volumes_arr <- array(data = unlist(volumes),dim = dim(volumes)[c(1,dt.timestep)]) # box/layer volumes
     # 
-    outputs <- read_atlantis(path = path, prefix = prefix, fg.file = fg.file, 
+    outputs <- atlantis2ls::read_atlantis(path = path, prefix = prefix, fg.file = fg.file, 
         txt.filename = "outputFolder/AMPS_OUTBiomIndx.txt")
 
     

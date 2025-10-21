@@ -29,8 +29,8 @@ minmaxt = function(obs, sim) {
 }
 
 # reads calibration informations
-setup = calibration_setup(file="calibration_settings.csv") 
-observed = calibration_data(setup = setup,
+setup = calibrar::calibration_setup(file="calibration_settings.csv") 
+observed = calibrar::calibration_data(setup = setup,
                            path=".", 
                            file = NULL, 
                            sep = ",")
@@ -44,7 +44,7 @@ forcing = read.csv(file="calibration-parameters-complete.csv",
 # create an objective function
 # additional arguments to the runModel function
 # are provided here.
-objfn = calibration_objFn(model=runModel, 
+objfn = calibrar::calibration_objFn(model=runModel, 
                           setup=setup, 
                           observed=observed, 
                           aggregate=TRUE,
@@ -78,7 +78,7 @@ clusterEvalQ(cl, library("stringr"))
 
 # run the calibration
 
-lbfgsb1 = calibrate(par=forcing['paropt'], fn=objfn, 
+lbfgsb1 = calibrar::calibrate(par=forcing['paropt'], fn=objfn, 
                     method='AHR-ES', 
                     lower=forcing['parmin'],
                     upper=forcing['parmax'],
