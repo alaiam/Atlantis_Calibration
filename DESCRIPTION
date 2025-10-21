@@ -1,0 +1,9 @@
+Title: Atlantis AMPS calibration
+Version: 0.1.0
+Author: Alaia Morell
+Maintainer: <alaia.morell@gmail.com>
+Description: Example of folder to run an Atlantis Calibration with Calibrar
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: stringr, calibrar, atlantis2ls, doSNOW
