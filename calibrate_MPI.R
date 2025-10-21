@@ -1,23 +1,14 @@
 rm(list=ls())
- 
-library(calibrar)
-library(stringr)
-# #set config
-# usethis::use_git_config(user.name = "alaiam", user.email = "alaia.morell@gmail.com")
-# 
-# #Go to github page to generate token
-# usethis::create_github_token() 
-# 
-# #paste your PAT into pop-up that follows...
-# credentials::set_github_pat()
 
-require("atlantis2ls")
-require("calibrar")
-# devtools::install_github("https://github.com/alaiam/atlantis2ls")
-# Need to load the doSNOW package, which is installed in my HOME: /home1/datahome/nbarrier/libs/R/lib
-require("doSNOW")
+# List of packages for session
+.packages = c("atlantis2ls","calibrar", "stringr", "doSNOW")
+# install.packages(.packages, dependencies = TRUE)
+# devtools::install_github("https://github.com/alaiam/atlantis2ls", force = T)
 
-setwd("/home/atlantis/psatlantismodel/Atlantis_Calibration/")
+# Load packages into session 
+lapply(.packages, require, character.only=TRUE)
+
+setwd("/home/atlantis/psatlantismodel/Atlantis_Calibration_fishing/")
 
 source("runModel_Atlantis.R")
 
@@ -47,17 +38,17 @@ forcing = read.csv(file="calibration-parameters-complete.csv",
 objfn = calibrar::calibration_objFn(model=runModel, 
                           setup=setup, 
                           observed=observed, 
-                          aggregate=TRUE,
+                          aggregate=FALSE,
                           forcing = forcing,
                           names=row.names(forcing))
 
 control = list()
-control$maxit = c(5)   # maximum number of generations (former gen.max parameter)
-control$maxgen = c(5)   # maximum number of generations (former gen.max parameter)
+control$maxit = c(5)   # maximum number of iterations (former gen.max parameter)
+control$maxgen = c(5)   # maximum number of iterations (former gen.max parameter)
 control$master = "/home/atlantis/psatlantismodel/Atlantis_Calibration/configuration/"   # directory that will be copied
 control$run = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN"   # run directory
 control$restart.file = "/home/atlantis/psatlantismodel/Atlantis_Calibration/restart_file"   # name of the restart file
-control$REPORT = 1    # number of generations to run before saving a restart
+control$REPORT = 1    # number of iterations to run before saving a restart
 control$parallel = TRUE
 control$nCores = 32
 control$popsize = 32  # population  size (former seed parameter)

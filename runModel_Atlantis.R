@@ -1,5 +1,4 @@
 
-
 #' Sample runModel function for Atlantis. It writes the calibrated
 #' param (\code{param} argument) into a CSV file that will
 #' overwrite the atlantis forcing files.
@@ -55,55 +54,31 @@ runModel  = function(param, names, ...) {
     
     writeLines(bio.lines, "bio.prm")
 
-    #TODO: Improve biomass function
-    #TODO: replace for loop
-
-
-path = getwd()
 
 ##########################################################################################
     # run Atlantis
+    path = getwd()
     sh.file = "amps_cal.sh"
     atlantis2ls::run_atlantis(path = path, sh.file = sh.file)
 
-
 ##########################################################################################
     # read Atlantis outputs
-    # path = "/home/atlantis/psatlantismodel/Atlantis_Calibration/RUN_9_25_2024/i21"
-
     prefix = "outputFolder/AMPS"
     bio.prm = "AMPSbioparam_mv1_2024_V10.prm"
     fg.file <- paste0(path,"/PugetSoundAtlantisFunctionalGroups_2024_V1.csv")
-    
-    log_file <- "parallel_log_read_atlantis.txt"
-
-    
-    # library(ncdf4)
-    # nc <- ncdf4::nc_open(paste0(path, "/outputFolder/AMPS_OUT.nc"))
-    # volumes <- ncdf4::ncvar_get(nc, "volume")
-    # volumes_arr <- array(data = unlist(volumes),dim = dim(volumes)[c(1,dt.timestep)]) # box/layer volumes
-    # 
     outputs <- atlantis2ls::read_atlantis(path = path, prefix = prefix, fg.file = fg.file, 
         txt.filename = "outputFolder/AMPS_OUTBiomIndx.txt")
 
-    
-    
-    
-    
-    # extract the biomass, abundance, waa variables
+    # extract the biomass and waa variables
     atlantis.biomass = outputs$biomass
-    #atlantis.abundance = outputs$abundance
     atlantis.meanSizeByAge = outputs$waa
       
 ##########################################################################################
-    # Check if the configuration has run
-    # Find a way to return 0 if does not work
-
-
 ##########################################################################################
 # Process the outputs so that calibrar like them
     if(length(atlantis.biomass)==2){
-      dt.timestep = 2
+      # Check if the configuration has run, if not return 0
+      dt.timestep = 2 # Equal to the number of timestep in data
       output = list(
       MA_biomass = rep(0,dt.timestep), 
       SG_biomass = rep(0,dt.timestep), 
@@ -553,6 +528,7 @@ path = getwd()
       Trans_Orca9_w = rep(0,dt.timestep))
 
     }else{
+      # When the simulation is complete
 output = list(
 
       # Biomass
@@ -1056,10 +1032,7 @@ output = list(
       Trans_Orca7_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca7"])),
       Trans_Orca8_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca8"])),
       Trans_Orca9_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca9"]))
-      
       )
-
   }
     return(output)
-
 }
