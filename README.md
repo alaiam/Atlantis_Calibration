@@ -1,7 +1,10 @@
-# Atlantis Calibration – General Overview
+# General Overview
 
 This repository provides scripts to calibrate the Atlantis ecosystem model using the **calibrar** R package.  
 The example included here is applied to the **Puget Sound Atlantis configuration**.
+
+
+![V3 Figure 1 papier calibration](https://github.com/user-attachments/assets/0f1aaa58-dfaf-4231-869b-87db8c276bf0)
 
 # Folder structure
 
