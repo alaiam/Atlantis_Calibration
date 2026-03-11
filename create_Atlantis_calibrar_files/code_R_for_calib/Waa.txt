@@ -1,0 +1,1582 @@
+Aurelia_biomass = unname(unlist(atlantis.meanSizeByAge["Aurelia_biomass"])), 
+
+Benthic_grazer_biomass = unname(unlist(atlantis.meanSizeByAge["Benthic_grazer_biomass"])), 
+
+Bivalve_biomass = unname(unlist(atlantis.meanSizeByAge["Bivalve_biomass"])), 
+
+California_sea_lion_biomass = unname(unlist(atlantis.meanSizeByAge["California_sea_lion_biomass"])), 
+
+California_sea_lion1_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion1_Nums"])), 
+
+California_sea_lion1_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion1"])), 
+
+California_sea_lion10_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion10_Nums"])), 
+
+California_sea_lion10_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion10"])), 
+
+California_sea_lion2_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion2_Nums"])), 
+
+California_sea_lion2_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion2"])), 
+
+California_sea_lion3_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion3_Nums"])), 
+
+California_sea_lion3_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion3"])), 
+
+California_sea_lion4_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion4_Nums"])), 
+
+California_sea_lion4_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion4"])), 
+
+California_sea_lion5_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion5_Nums"])), 
+
+California_sea_lion5_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion5"])), 
+
+California_sea_lion6_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion6_Nums"])), 
+
+California_sea_lion6_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion6"])), 
+
+California_sea_lion7_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion7_Nums"])), 
+
+California_sea_lion7_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion7"])), 
+
+California_sea_lion8_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion8_Nums"])), 
+
+California_sea_lion8_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion8"])), 
+
+California_sea_lion9_Nums = unname(unlist(atlantis.meanSizeByAge["California_sea_lion9_Nums"])), 
+
+California_sea_lion9_w = unname(unlist(atlantis.meanSizeByAge["California_sea_lion9"])), 
+
+Carn_Infauna_biomass = unname(unlist(atlantis.meanSizeByAge["Carn_Infauna_biomass"])), 
+
+ChinookDSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish_biomass"])), 
+
+ChinookDSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish1_Nums"])), 
+
+ChinookDSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish1"])), 
+
+ChinookDSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish2_Nums"])), 
+
+ChinookDSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish2"])), 
+
+ChinookDSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish3_Nums"])), 
+
+ChinookDSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish3"])), 
+
+ChinookDSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish4_Nums"])), 
+
+ChinookDSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish4"])), 
+
+ChinookDSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish5_Nums"])), 
+
+ChinookDSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookDSY_Fish5"])), 
+
+ChinookHY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish_biomass"])), 
+
+ChinookHY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish1_Nums"])), 
+
+ChinookHY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish1"])), 
+
+ChinookHY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish2_Nums"])), 
+
+ChinookHY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish2"])), 
+
+ChinookHY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish3_Nums"])), 
+
+ChinookHY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish3"])), 
+
+ChinookHY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish4_Nums"])), 
+
+ChinookHY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish4"])), 
+
+ChinookHY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish5_Nums"])), 
+
+ChinookHY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookHY_Fish5"])), 
+
+ChinookNSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish_biomass"])), 
+
+ChinookNSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish1_Nums"])), 
+
+ChinookNSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish1"])), 
+
+ChinookNSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish2_Nums"])), 
+
+ChinookNSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish2"])), 
+
+ChinookNSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish3_Nums"])), 
+
+ChinookNSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish3"])), 
+
+ChinookNSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish4_Nums"])), 
+
+ChinookNSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish4"])), 
+
+ChinookNSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish5_Nums"])), 
+
+ChinookNSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookNSY_Fish5"])), 
+
+ChinookNY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish_biomass"])), 
+
+ChinookNY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish1_Nums"])), 
+
+ChinookNY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish1"])), 
+
+ChinookNY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish2_Nums"])), 
+
+ChinookNY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish2"])), 
+
+ChinookNY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish3_Nums"])), 
+
+ChinookNY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish3"])), 
+
+ChinookNY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish4_Nums"])), 
+
+ChinookNY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish4"])), 
+
+ChinookNY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish5_Nums"])), 
+
+ChinookNY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookNY_Fish5"])), 
+
+ChinookOSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish_biomass"])), 
+
+ChinookOSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish1_Nums"])), 
+
+ChinookOSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish1"])), 
+
+ChinookOSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish2_Nums"])), 
+
+ChinookOSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish2"])), 
+
+ChinookOSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish3_Nums"])), 
+
+ChinookOSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish3"])), 
+
+ChinookOSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish4_Nums"])), 
+
+ChinookOSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish4"])), 
+
+ChinookOSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish5_Nums"])), 
+
+ChinookOSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookOSY_Fish5"])), 
+
+ChinookOY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish_biomass"])), 
+
+ChinookOY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish1_Nums"])), 
+
+ChinookOY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish1"])), 
+
+ChinookOY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish2_Nums"])), 
+
+ChinookOY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish2"])), 
+
+ChinookOY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish3_Nums"])), 
+
+ChinookOY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish3"])), 
+
+ChinookOY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish4_Nums"])), 
+
+ChinookOY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish4"])), 
+
+ChinookOY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish5_Nums"])), 
+
+ChinookOY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookOY_Fish5"])), 
+
+ChinookResH_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookResH_Fish_biomass"])), 
+
+ChinookResH_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookResH_Fish1"])),
+ChinookResH_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookResH_Fish2"])),
+ChinookResH_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookResH_Fish3"])),
+ChinookResH_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookResH_Fish4"])),
+ChinookResH_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookResH_Fish5"])), 
+
+ChinookResN_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookResN_Fish_biomass"])), 
+
+ChinookResN_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookResN_Fish1"])),
+ChinookResN_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookResN_Fish2"])),
+ChinookResN_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookResN_Fish3"])),
+ChinookResN_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookResN_Fish4"])),
+ChinookResN_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookResN_Fish5"])), 
+
+ChinookResW_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookResW_Fish_biomass"])), 
+
+ChinookResW_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookResW_Fish1"])),
+ChinookResW_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookResW_Fish2"])),
+ChinookResW_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookResW_Fish3"])),
+ChinookResW_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookResW_Fish4"])),
+ChinookResW_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookResW_Fish5"])), 
+
+ChinookSKSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish_biomass"])), 
+
+ChinookSKSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish1_Nums"])), 
+
+ChinookSKSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish1"])), 
+
+ChinookSKSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish2_Nums"])), 
+
+ChinookSKSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish2"])), 
+
+ChinookSKSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish3_Nums"])), 
+
+ChinookSKSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish3"])), 
+
+ChinookSKSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish4_Nums"])), 
+
+ChinookSKSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish4"])), 
+
+ChinookSKSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish5_Nums"])), 
+
+ChinookSKSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKSY_Fish5"])), 
+
+ChinookSKY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish_biomass"])), 
+
+ChinookSKY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish1_Nums"])), 
+
+ChinookSKY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish1"])), 
+
+ChinookSKY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish2_Nums"])), 
+
+ChinookSKY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish2"])), 
+
+ChinookSKY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish3_Nums"])), 
+
+ChinookSKY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish3"])), 
+
+ChinookSKY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish4_Nums"])), 
+
+ChinookSKY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish4"])), 
+
+ChinookSKY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish5_Nums"])), 
+
+ChinookSKY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookSKY_Fish5"])), 
+
+ChinookSSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish_biomass"])), 
+
+ChinookSSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish1_Nums"])), 
+
+ChinookSSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish1"])), 
+
+ChinookSSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish2_Nums"])), 
+
+ChinookSSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish2"])), 
+
+ChinookSSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish3_Nums"])), 
+
+ChinookSSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish3"])), 
+
+ChinookSSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish4_Nums"])), 
+
+ChinookSSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish4"])), 
+
+ChinookSSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish5_Nums"])), 
+
+ChinookSSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookSSY_Fish5"])), 
+
+ChinookSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish_biomass"])), 
+
+ChinookSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish1_Nums"])), 
+
+ChinookSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish1"])), 
+
+ChinookSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish2_Nums"])), 
+
+ChinookSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish2"])), 
+
+ChinookSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish3_Nums"])), 
+
+ChinookSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish3"])), 
+
+ChinookSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish4_Nums"])), 
+
+ChinookSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish4"])), 
+
+ChinookSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish5_Nums"])), 
+
+ChinookSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookSY_Fish5"])), 
+
+ChinookY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish_biomass"])), 
+
+ChinookY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish1_Nums"])), 
+
+ChinookY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish1"])), 
+
+ChinookY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish2_Nums"])), 
+
+ChinookY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish2"])), 
+
+ChinookY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish3_Nums"])), 
+
+ChinookY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish3"])), 
+
+ChinookY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish4_Nums"])), 
+
+ChinookY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish4"])), 
+
+ChinookY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish5_Nums"])), 
+
+ChinookY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChinookY_Fish5"])), 
+
+ChumFSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish_biomass"])), 
+
+ChumFSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish1_Nums"])), 
+
+ChumFSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish1"])), 
+
+ChumFSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish2_Nums"])), 
+
+ChumFSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish2"])), 
+
+ChumFSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish3_Nums"])), 
+
+ChumFSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish3"])), 
+
+ChumFSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish4_Nums"])), 
+
+ChumFSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish4"])), 
+
+ChumFSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish5_Nums"])), 
+
+ChumFSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChumFSY_Fish5"])), 
+
+ChumHCSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish_biomass"])), 
+
+ChumHCSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish1_Nums"])), 
+
+ChumHCSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish1"])), 
+
+ChumHCSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish2_Nums"])), 
+
+ChumHCSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish2"])), 
+
+ChumHCSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish3_Nums"])), 
+
+ChumHCSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish3"])), 
+
+ChumHCSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish4_Nums"])), 
+
+ChumHCSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish4"])), 
+
+ChumHCSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish5_Nums"])), 
+
+ChumHCSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChumHCSY_Fish5"])), 
+
+ChumHSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish_biomass"])), 
+
+ChumHSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish1_Nums"])), 
+
+ChumHSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish1"])), 
+
+ChumHSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish2_Nums"])), 
+
+ChumHSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish2"])), 
+
+ChumHSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish3_Nums"])), 
+
+ChumHSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish3"])), 
+
+ChumHSY_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish4_Nums"])), 
+
+ChumHSY_Fish4_w = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish4"])), 
+
+ChumHSY_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish5_Nums"])), 
+
+ChumHSY_Fish5_w = unname(unlist(atlantis.meanSizeByAge["ChumHSY_Fish5"])), 
+
+CohoDSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["CohoDSY_Fish_biomass"])), 
+
+CohoDSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["CohoDSY_Fish1_Nums"])), 
+
+CohoDSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["CohoDSY_Fish1"])), 
+
+CohoDSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["CohoDSY_Fish2_Nums"])), 
+
+CohoDSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["CohoDSY_Fish2"])), 
+
+CohoDSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["CohoDSY_Fish3_Nums"])), 
+
+CohoDSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["CohoDSY_Fish3"])), 
+
+CohoHY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["CohoHY_Fish_biomass"])), 
+
+CohoHY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["CohoHY_Fish1_Nums"])), 
+
+CohoHY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["CohoHY_Fish1"])), 
+
+CohoHY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["CohoHY_Fish2_Nums"])), 
+
+CohoHY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["CohoHY_Fish2"])), 
+
+CohoHY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["CohoHY_Fish3_Nums"])), 
+
+CohoHY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["CohoHY_Fish3"])), 
+
+CohoOY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["CohoOY_Fish_biomass"])), 
+
+CohoOY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["CohoOY_Fish1_Nums"])), 
+
+CohoOY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["CohoOY_Fish1"])), 
+
+CohoOY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["CohoOY_Fish2_Nums"])), 
+
+CohoOY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["CohoOY_Fish2"])), 
+
+CohoOY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["CohoOY_Fish3_Nums"])), 
+
+CohoOY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["CohoOY_Fish3"])), 
+
+CohoRes_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["CohoRes_Fish_biomass"])), 
+
+CohoRes_Fish1_w = unname(unlist(atlantis.meanSizeByAge["CohoRes_Fish1"])),
+CohoRes_Fish2_w = unname(unlist(atlantis.meanSizeByAge["CohoRes_Fish2"])),
+CohoRes_Fish3_w = unname(unlist(atlantis.meanSizeByAge["CohoRes_Fish3"])), 
+
+CohoResD_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["CohoResD_Fish_biomass"])), 
+
+CohoResD_Fish1_w = unname(unlist(atlantis.meanSizeByAge["CohoResD_Fish1"])),
+CohoResD_Fish2_w = unname(unlist(atlantis.meanSizeByAge["CohoResD_Fish2"])),
+CohoResD_Fish3_w = unname(unlist(atlantis.meanSizeByAge["CohoResD_Fish3"])), 
+
+CohoSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["CohoSY_Fish_biomass"])), 
+
+CohoSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["CohoSY_Fish1_Nums"])), 
+
+CohoSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["CohoSY_Fish1"])), 
+
+CohoSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["CohoSY_Fish2_Nums"])), 
+
+CohoSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["CohoSY_Fish2"])), 
+
+CohoSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["CohoSY_Fish3_Nums"])), 
+
+CohoSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["CohoSY_Fish3"])), 
+
+Crab_biomass = unname(unlist(atlantis.meanSizeByAge["Crab_biomass"])), 
+
+DemRock_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish_biomass"])), 
+
+DemRock_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish1_Nums"])), 
+
+DemRock_Fish1_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish1"])), 
+
+DemRock_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish10_Nums"])), 
+
+DemRock_Fish10_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish10"])), 
+
+DemRock_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish2_Nums"])), 
+
+DemRock_Fish2_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish2"])), 
+
+DemRock_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish3_Nums"])), 
+
+DemRock_Fish3_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish3"])), 
+
+DemRock_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish4_Nums"])), 
+
+DemRock_Fish4_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish4"])), 
+
+DemRock_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish5_Nums"])), 
+
+DemRock_Fish5_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish5"])), 
+
+DemRock_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish6_Nums"])), 
+
+DemRock_Fish6_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish6"])), 
+
+DemRock_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish7_Nums"])), 
+
+DemRock_Fish7_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish7"])), 
+
+DemRock_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish8_Nums"])), 
+
+DemRock_Fish8_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish8"])), 
+
+DemRock_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish9_Nums"])), 
+
+DemRock_Fish9_w = unname(unlist(atlantis.meanSizeByAge["DemRock_Fish9"])), 
+
+DemVRock_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish_biomass"])), 
+
+DemVRock_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish1_Nums"])), 
+
+DemVRock_Fish1_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish1"])), 
+
+DemVRock_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish10_Nums"])), 
+
+DemVRock_Fish10_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish10"])), 
+
+DemVRock_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish2_Nums"])), 
+
+DemVRock_Fish2_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish2"])), 
+
+DemVRock_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish3_Nums"])), 
+
+DemVRock_Fish3_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish3"])), 
+
+DemVRock_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish4_Nums"])), 
+
+DemVRock_Fish4_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish4"])), 
+
+DemVRock_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish5_Nums"])), 
+
+DemVRock_Fish5_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish5"])), 
+
+DemVRock_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish6_Nums"])), 
+
+DemVRock_Fish6_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish6"])), 
+
+DemVRock_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish7_Nums"])), 
+
+DemVRock_Fish7_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish7"])), 
+
+DemVRock_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish8_Nums"])), 
+
+DemVRock_Fish8_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish8"])), 
+
+DemVRock_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish9_Nums"])), 
+
+DemVRock_Fish9_w = unname(unlist(atlantis.meanSizeByAge["DemVRock_Fish9"])), 
+
+Deposit_Feeder_biomass = unname(unlist(atlantis.meanSizeByAge["Deposit_Feeder_biomass"])), 
+
+Dungeness_biomass = unname(unlist(atlantis.meanSizeByAge["Dungeness_biomass"])), 
+
+Filter_Other_biomass = unname(unlist(atlantis.meanSizeByAge["Filter_Other_biomass"])), 
+
+Gadiods_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish_biomass"])), 
+
+Gadiods_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish1_Nums"])), 
+
+Gadiods_Fish1_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish1"])), 
+
+Gadiods_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish10_Nums"])), 
+
+Gadiods_Fish10_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish10"])), 
+
+Gadiods_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish2_Nums"])), 
+
+Gadiods_Fish2_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish2"])), 
+
+Gadiods_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish3_Nums"])), 
+
+Gadiods_Fish3_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish3"])), 
+
+Gadiods_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish4_Nums"])), 
+
+Gadiods_Fish4_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish4"])), 
+
+Gadiods_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish5_Nums"])), 
+
+Gadiods_Fish5_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish5"])), 
+
+Gadiods_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish6_Nums"])), 
+
+Gadiods_Fish6_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish6"])), 
+
+Gadiods_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish7_Nums"])), 
+
+Gadiods_Fish7_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish7"])), 
+
+Gadiods_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish8_Nums"])), 
+
+Gadiods_Fish8_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish8"])), 
+
+Gadiods_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish9_Nums"])), 
+
+Gadiods_Fish9_w = unname(unlist(atlantis.meanSizeByAge["Gadiods_Fish9"])), 
+
+Gel_Zoo_biomass = unname(unlist(atlantis.meanSizeByAge["Gel_Zoo_biomass"])), 
+
+Geoduck_biomass = unname(unlist(atlantis.meanSizeByAge["Geoduck_biomass"])), 
+
+Harbor_seal_biomass = unname(unlist(atlantis.meanSizeByAge["Harbor_seal_biomass"])), 
+
+Harbor_seal1_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal1_Nums"])), 
+
+Harbor_seal1_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal1"])), 
+
+Harbor_seal10_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal10_Nums"])), 
+
+Harbor_seal10_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal10"])), 
+
+Harbor_seal2_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal2_Nums"])), 
+
+Harbor_seal2_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal2"])), 
+
+Harbor_seal3_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal3_Nums"])), 
+
+Harbor_seal3_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal3"])), 
+
+Harbor_seal4_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal4_Nums"])), 
+
+Harbor_seal4_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal4"])), 
+
+Harbor_seal5_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal5_Nums"])), 
+
+Harbor_seal5_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal5"])), 
+
+Harbor_seal6_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal6_Nums"])), 
+
+Harbor_seal6_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal6"])), 
+
+Harbor_seal7_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal7_Nums"])), 
+
+Harbor_seal7_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal7"])), 
+
+Harbor_seal8_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal8_Nums"])), 
+
+Harbor_seal8_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal8"])), 
+
+Harbor_seal9_Nums = unname(unlist(atlantis.meanSizeByAge["Harbor_seal9_Nums"])), 
+
+Harbor_seal9_w = unname(unlist(atlantis.meanSizeByAge["Harbor_seal9"])), 
+
+Herring_Cherry_biomass = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry_biomass"])), 
+
+Herring_Cherry1_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry1_Nums"])), 
+
+Herring_Cherry1_w = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry1"])), 
+
+Herring_Cherry2_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry2_Nums"])), 
+
+Herring_Cherry2_w = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry2"])), 
+
+Herring_Cherry3_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry3_Nums"])), 
+
+Herring_Cherry3_w = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry3"])), 
+
+Herring_Cherry4_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry4_Nums"])), 
+
+Herring_Cherry4_w = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry4"])), 
+
+Herring_Cherry5_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry5_Nums"])), 
+
+Herring_Cherry5_w = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry5"])), 
+
+Herring_Cherry6_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry6_Nums"])), 
+
+Herring_Cherry6_w = unname(unlist(atlantis.meanSizeByAge["Herring_Cherry6"])), 
+
+Herring_PS_biomass = unname(unlist(atlantis.meanSizeByAge["Herring_PS_biomass"])), 
+
+Herring_PS1_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_PS1_Nums"])), 
+
+Herring_PS1_w = unname(unlist(atlantis.meanSizeByAge["Herring_PS1"])), 
+
+Herring_PS2_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_PS2_Nums"])), 
+
+Herring_PS2_w = unname(unlist(atlantis.meanSizeByAge["Herring_PS2"])), 
+
+Herring_PS3_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_PS3_Nums"])), 
+
+Herring_PS3_w = unname(unlist(atlantis.meanSizeByAge["Herring_PS3"])), 
+
+Herring_PS4_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_PS4_Nums"])), 
+
+Herring_PS4_w = unname(unlist(atlantis.meanSizeByAge["Herring_PS4"])), 
+
+Herring_PS5_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_PS5_Nums"])), 
+
+Herring_PS5_w = unname(unlist(atlantis.meanSizeByAge["Herring_PS5"])), 
+
+Herring_PS6_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_PS6_Nums"])), 
+
+Herring_PS6_w = unname(unlist(atlantis.meanSizeByAge["Herring_PS6"])), 
+
+Herring_PS7_Nums = unname(unlist(atlantis.meanSizeByAge["Herring_PS7_Nums"])), 
+
+Herring_PS7_w = unname(unlist(atlantis.meanSizeByAge["Herring_PS7"])), 
+
+Hump_whale_biomass = unname(unlist(atlantis.meanSizeByAge["Humphale_biomass"])), 
+
+Hump_whale1_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale1_Nums"])), 
+
+Hump_whale1_w = unname(unlist(atlantis.meanSizeByAge["Humphale1_w"])), 
+
+Hump_whale10_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale10_Nums"])), 
+
+Hump_whale10_w = unname(unlist(atlantis.meanSizeByAge["Humphale10_w"])), 
+
+Hump_whale2_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale2_Nums"])), 
+
+Hump_whale2_w = unname(unlist(atlantis.meanSizeByAge["Humphale2_w"])), 
+
+Hump_whale3_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale3_Nums"])), 
+
+Hump_whale3_w = unname(unlist(atlantis.meanSizeByAge["Humphale3_w"])), 
+
+Hump_whale4_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale4_Nums"])), 
+
+Hump_whale4_w = unname(unlist(atlantis.meanSizeByAge["Humphale4_w"])), 
+
+Hump_whale5_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale5_Nums"])), 
+
+Hump_whale5_w = unname(unlist(atlantis.meanSizeByAge["Humphale5_w"])), 
+
+Hump_whale6_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale6_Nums"])), 
+
+Hump_whale6_w = unname(unlist(atlantis.meanSizeByAge["Humphale6_w"])), 
+
+Hump_whale7_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale7_Nums"])), 
+
+Hump_whale7_w = unname(unlist(atlantis.meanSizeByAge["Humphale7_w"])), 
+
+Hump_whale8_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale8_Nums"])), 
+
+Hump_whale8_w = unname(unlist(atlantis.meanSizeByAge["Humphale8_w"])), 
+
+Hump_whale9_Nums = unname(unlist(atlantis.meanSizeByAge["Humphale9_Nums"])), 
+
+Hump_whale9_w = unname(unlist(atlantis.meanSizeByAge["Humphale9_w"])), 
+
+LgDem_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish_biomass"])), 
+
+LgDem_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish1_Nums"])), 
+
+LgDem_Fish1_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish1"])), 
+
+LgDem_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish10_Nums"])), 
+
+LgDem_Fish10_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish10"])), 
+
+LgDem_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish2_Nums"])), 
+
+LgDem_Fish2_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish2"])), 
+
+LgDem_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish3_Nums"])), 
+
+LgDem_Fish3_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish3"])), 
+
+LgDem_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish4_Nums"])), 
+
+LgDem_Fish4_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish4"])), 
+
+LgDem_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish5_Nums"])), 
+
+LgDem_Fish5_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish5"])), 
+
+LgDem_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish6_Nums"])), 
+
+LgDem_Fish6_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish6"])), 
+
+LgDem_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish7_Nums"])), 
+
+LgDem_Fish7_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish7"])), 
+
+LgDem_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish8_Nums"])), 
+
+LgDem_Fish8_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish8"])), 
+
+LgDem_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish9_Nums"])), 
+
+LgDem_Fish9_w = unname(unlist(atlantis.meanSizeByAge["LgDem_Fish9"])), 
+
+Lrg_Zoo_biomass = unname(unlist(atlantis.meanSizeByAge["Lrg_Zoo_biomass"])), 
+
+Macroalgae_biomass = unname(unlist(atlantis.meanSizeByAge["Macroalgae_biomass"])), 
+
+Macrobenth_Deep_biomass = unname(unlist(atlantis.meanSizeByAge["Macrobenth_Deep_biomass"])), 
+
+Meso_Zoo_biomass = unname(unlist(atlantis.meanSizeByAge["Meso_Zoo_biomass"])), 
+
+Micro_Zoo_biomass = unname(unlist(atlantis.meanSizeByAge["Micro_Zoo_biomass"])), 
+
+MidRock_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish_biomass"])), 
+
+MidRock_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish1_Nums"])), 
+
+MidRock_Fish1_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish1"])), 
+
+MidRock_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish10_Nums"])), 
+
+MidRock_Fish10_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish10"])), 
+
+MidRock_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish2_Nums"])), 
+
+MidRock_Fish2_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish2"])), 
+
+MidRock_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish3_Nums"])), 
+
+MidRock_Fish3_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish3"])), 
+
+MidRock_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish4_Nums"])), 
+
+MidRock_Fish4_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish4"])), 
+
+MidRock_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish5_Nums"])), 
+
+MidRock_Fish5_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish5"])), 
+
+MidRock_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish6_Nums"])), 
+
+MidRock_Fish6_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish6"])), 
+
+MidRock_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish7_Nums"])), 
+
+MidRock_Fish7_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish7"])), 
+
+MidRock_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish8_Nums"])), 
+
+MidRock_Fish8_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish8"])), 
+
+MidRock_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish9_Nums"])), 
+
+MidRock_Fish9_w = unname(unlist(atlantis.meanSizeByAge["MidRock_Fish9"])), 
+
+MidVRock_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish_biomass"])), 
+
+MidVRock_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish1_Nums"])), 
+
+MidVRock_Fish1_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish1"])), 
+
+MidVRock_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish10_Nums"])), 
+
+MidVRock_Fish10_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish10"])), 
+
+MidVRock_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish2_Nums"])), 
+
+MidVRock_Fish2_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish2"])), 
+
+MidVRock_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish3_Nums"])), 
+
+MidVRock_Fish3_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish3"])), 
+
+MidVRock_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish4_Nums"])), 
+
+MidVRock_Fish4_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish4"])), 
+
+MidVRock_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish5_Nums"])), 
+
+MidVRock_Fish5_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish5"])), 
+
+MidVRock_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish6_Nums"])), 
+
+MidVRock_Fish6_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish6"])), 
+
+MidVRock_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish7_Nums"])), 
+
+MidVRock_Fish7_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish7"])), 
+
+MidVRock_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish8_Nums"])), 
+
+MidVRock_Fish8_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish8"])), 
+
+MidVRock_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish9_Nums"])), 
+
+MidVRock_Fish9_w = unname(unlist(atlantis.meanSizeByAge["MidVRock_Fish9"])), 
+
+NonPisc_Seabird_biomass = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird_biomass"])), 
+
+NonPisc_Seabird1_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird1_Nums"])), 
+
+NonPisc_Seabird1_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird1"])), 
+
+NonPisc_Seabird10_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird10_Nums"])), 
+
+NonPisc_Seabird10_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird10"])), 
+
+NonPisc_Seabird2_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird2_Nums"])), 
+
+NonPisc_Seabird2_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird2"])), 
+
+NonPisc_Seabird3_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird3_Nums"])), 
+
+NonPisc_Seabird3_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird3"])), 
+
+NonPisc_Seabird4_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird4_Nums"])), 
+
+NonPisc_Seabird4_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird4"])), 
+
+NonPisc_Seabird5_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird5_Nums"])), 
+
+NonPisc_Seabird5_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird5"])), 
+
+NonPisc_Seabird6_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird6_Nums"])), 
+
+NonPisc_Seabird6_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird6"])), 
+
+NonPisc_Seabird7_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird7_Nums"])), 
+
+NonPisc_Seabird7_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird7"])), 
+
+NonPisc_Seabird8_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird8_Nums"])), 
+
+NonPisc_Seabird8_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird8"])), 
+
+NonPisc_Seabird9_Nums = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird9_Nums"])), 
+
+NonPisc_Seabird9_w = unname(unlist(atlantis.meanSizeByAge["NonPisc_Seabird9"])), 
+
+Octopi_biomass = unname(unlist(atlantis.meanSizeByAge["Octopi_biomass"])), 
+
+OtherSal_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish_biomass"])), 
+
+OtherSal_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish1_Nums"])), 
+
+OtherSal_Fish1_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish1"])), 
+
+OtherSal_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish2_Nums"])), 
+
+OtherSal_Fish2_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish2"])), 
+
+OtherSal_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish3_Nums"])), 
+
+OtherSal_Fish3_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish3"])), 
+
+OtherSal_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish4_Nums"])), 
+
+OtherSal_Fish4_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish4"])), 
+
+OtherSal_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish5_Nums"])), 
+
+OtherSal_Fish5_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish5"])), 
+
+OtherSal_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish6_Nums"])), 
+
+OtherSal_Fish6_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish6"])), 
+
+OtherSal_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish7_Nums"])), 
+
+OtherSal_Fish7_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish7"])), 
+
+OtherSal_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish8_Nums"])), 
+
+OtherSal_Fish8_w = unname(unlist(atlantis.meanSizeByAge["OtherSal_Fish8"])), 
+
+Pelag_Bact_biomass = unname(unlist(atlantis.meanSizeByAge["Pelag_Bact_biomass"])), 
+
+Perch_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["Perch_Fish_biomass"])), 
+
+Perch_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish1_Nums"])), 
+
+Perch_Fish1_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish1"])), 
+
+Perch_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish2_Nums"])), 
+
+Perch_Fish2_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish2"])), 
+
+Perch_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish3_Nums"])), 
+
+Perch_Fish3_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish3"])), 
+
+Perch_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish4_Nums"])), 
+
+Perch_Fish4_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish4"])), 
+
+Perch_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish5_Nums"])), 
+
+Perch_Fish5_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish5"])), 
+
+Perch_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish6_Nums"])), 
+
+Perch_Fish6_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish6"])), 
+
+Perch_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish7_Nums"])), 
+
+Perch_Fish7_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish7"])), 
+
+Perch_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["Perch_Fish8_Nums"])), 
+
+Perch_Fish8_w = unname(unlist(atlantis.meanSizeByAge["Perch_Fish8"])), 
+
+PinkSY_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["PinkSY_Fish_biomass"])), 
+
+PinkSY_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["PinkSY_Fish1_Nums"])), 
+
+PinkSY_Fish1_w = unname(unlist(atlantis.meanSizeByAge["PinkSY_Fish1"])), 
+
+PinkSY_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["PinkSY_Fish2_Nums"])), 
+
+PinkSY_Fish2_w = unname(unlist(atlantis.meanSizeByAge["PinkSY_Fish2"])), 
+
+PinkSY_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["PinkSY_Fish3_Nums"])), 
+
+PinkSY_Fish3_w = unname(unlist(atlantis.meanSizeByAge["PinkSY_Fish3"])), 
+
+Pinniped_biomass = unname(unlist(atlantis.meanSizeByAge["Pinniped_biomass"])), 
+
+Pinniped1_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped1_Nums"])), 
+
+Pinniped1_w = unname(unlist(atlantis.meanSizeByAge["Pinniped1"])), 
+
+Pinniped10_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped10_Nums"])), 
+
+Pinniped10_w = unname(unlist(atlantis.meanSizeByAge["Pinniped10"])), 
+
+Pinniped2_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped2_Nums"])), 
+
+Pinniped2_w = unname(unlist(atlantis.meanSizeByAge["Pinniped2"])), 
+
+Pinniped3_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped3_Nums"])), 
+
+Pinniped3_w = unname(unlist(atlantis.meanSizeByAge["Pinniped3"])), 
+
+Pinniped4_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped4_Nums"])), 
+
+Pinniped4_w = unname(unlist(atlantis.meanSizeByAge["Pinniped4"])), 
+
+Pinniped5_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped5_Nums"])), 
+
+Pinniped5_w = unname(unlist(atlantis.meanSizeByAge["Pinniped5"])), 
+
+Pinniped6_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped6_Nums"])), 
+
+Pinniped6_w = unname(unlist(atlantis.meanSizeByAge["Pinniped6"])), 
+
+Pinniped7_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped7_Nums"])), 
+
+Pinniped7_w = unname(unlist(atlantis.meanSizeByAge["Pinniped7"])), 
+
+Pinniped8_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped8_Nums"])), 
+
+Pinniped8_w = unname(unlist(atlantis.meanSizeByAge["Pinniped8"])), 
+
+Pinniped9_Nums = unname(unlist(atlantis.meanSizeByAge["Pinniped9_Nums"])), 
+
+Pinniped9_w = unname(unlist(atlantis.meanSizeByAge["Pinniped9"])), 
+
+Pisc_Seabird_biomass = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird_biomass"])), 
+
+Pisc_Seabird1_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird1_Nums"])), 
+
+Pisc_Seabird1_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird1"])), 
+
+Pisc_Seabird10_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird10_Nums"])), 
+
+Pisc_Seabird10_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird10"])), 
+
+Pisc_Seabird2_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird2_Nums"])), 
+
+Pisc_Seabird2_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird2"])), 
+
+Pisc_Seabird3_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird3_Nums"])), 
+
+Pisc_Seabird3_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird3"])), 
+
+Pisc_Seabird4_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird4_Nums"])), 
+
+Pisc_Seabird4_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird4"])), 
+
+Pisc_Seabird5_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird5_Nums"])), 
+
+Pisc_Seabird5_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird5"])), 
+
+Pisc_Seabird6_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird6_Nums"])), 
+
+Pisc_Seabird6_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird6"])), 
+
+Pisc_Seabird7_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird7_Nums"])), 
+
+Pisc_Seabird7_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird7"])), 
+
+Pisc_Seabird8_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird8_Nums"])), 
+
+Pisc_Seabird8_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird8"])), 
+
+Pisc_Seabird9_Nums = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird9_Nums"])), 
+
+Pisc_Seabird9_w = unname(unlist(atlantis.meanSizeByAge["Pisc_Seabird9"])), 
+
+PiscFlat_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish_biomass"])), 
+
+PiscFlat_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish1_Nums"])), 
+
+PiscFlat_Fish1_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish1"])), 
+
+PiscFlat_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish10_Nums"])), 
+
+PiscFlat_Fish10_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish10"])), 
+
+PiscFlat_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish2_Nums"])), 
+
+PiscFlat_Fish2_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish2"])), 
+
+PiscFlat_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish3_Nums"])), 
+
+PiscFlat_Fish3_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish3"])), 
+
+PiscFlat_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish4_Nums"])), 
+
+PiscFlat_Fish4_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish4"])), 
+
+PiscFlat_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish5_Nums"])), 
+
+PiscFlat_Fish5_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish5"])), 
+
+PiscFlat_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish6_Nums"])), 
+
+PiscFlat_Fish6_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish6"])), 
+
+PiscFlat_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish7_Nums"])), 
+
+PiscFlat_Fish7_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish7"])), 
+
+PiscFlat_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish8_Nums"])), 
+
+PiscFlat_Fish8_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish8"])), 
+
+PiscFlat_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish9_Nums"])), 
+
+PiscFlat_Fish9_w = unname(unlist(atlantis.meanSizeByAge["PiscFlat_Fish9"])), 
+
+Porpoise_biomass = unname(unlist(atlantis.meanSizeByAge["Porpoise_biomass"])), 
+
+Porpoise1_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise1_Nums"])), 
+
+Porpoise1_w = unname(unlist(atlantis.meanSizeByAge["Porpoise1"])), 
+
+Porpoise10_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise10_Nums"])), 
+
+Porpoise10_w = unname(unlist(atlantis.meanSizeByAge["Porpoise10"])), 
+
+Porpoise2_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise2_Nums"])), 
+
+Porpoise2_w = unname(unlist(atlantis.meanSizeByAge["Porpoise2"])), 
+
+Porpoise3_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise3_Nums"])), 
+
+Porpoise3_w = unname(unlist(atlantis.meanSizeByAge["Porpoise3"])), 
+
+Porpoise4_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise4_Nums"])), 
+
+Porpoise4_w = unname(unlist(atlantis.meanSizeByAge["Porpoise4"])), 
+
+Porpoise5_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise5_Nums"])), 
+
+Porpoise5_w = unname(unlist(atlantis.meanSizeByAge["Porpoise5"])), 
+
+Porpoise6_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise6_Nums"])), 
+
+Porpoise6_w = unname(unlist(atlantis.meanSizeByAge["Porpoise6"])), 
+
+Porpoise7_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise7_Nums"])), 
+
+Porpoise7_w = unname(unlist(atlantis.meanSizeByAge["Porpoise7"])), 
+
+Porpoise8_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise8_Nums"])), 
+
+Porpoise8_w = unname(unlist(atlantis.meanSizeByAge["Porpoise8"])), 
+
+Porpoise9_Nums = unname(unlist(atlantis.meanSizeByAge["Porpoise9_Nums"])), 
+
+Porpoise9_w = unname(unlist(atlantis.meanSizeByAge["Porpoise9"])), 
+
+Raptors_biomass = unname(unlist(atlantis.meanSizeByAge["Raptors_biomass"])), 
+
+Raptors1_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors1_Nums"])), 
+
+Raptors1_w = unname(unlist(atlantis.meanSizeByAge["Raptors1"])), 
+
+Raptors10_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors10_Nums"])), 
+
+Raptors10_w = unname(unlist(atlantis.meanSizeByAge["Raptors10"])), 
+
+Raptors2_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors2_Nums"])), 
+
+Raptors2_w = unname(unlist(atlantis.meanSizeByAge["Raptors2"])), 
+
+Raptors3_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors3_Nums"])), 
+
+Raptors3_w = unname(unlist(atlantis.meanSizeByAge["Raptors3"])), 
+
+Raptors4_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors4_Nums"])), 
+
+Raptors4_w = unname(unlist(atlantis.meanSizeByAge["Raptors4"])), 
+
+Raptors5_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors5_Nums"])), 
+
+Raptors5_w = unname(unlist(atlantis.meanSizeByAge["Raptors5"])), 
+
+Raptors6_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors6_Nums"])), 
+
+Raptors6_w = unname(unlist(atlantis.meanSizeByAge["Raptors6"])), 
+
+Raptors7_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors7_Nums"])), 
+
+Raptors7_w = unname(unlist(atlantis.meanSizeByAge["Raptors7"])), 
+
+Raptors8_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors8_Nums"])), 
+
+Raptors8_w = unname(unlist(atlantis.meanSizeByAge["Raptors8"])), 
+
+Raptors9_Nums = unname(unlist(atlantis.meanSizeByAge["Raptors9_Nums"])), 
+
+Raptors9_w = unname(unlist(atlantis.meanSizeByAge["Raptors9"])), 
+
+Ratfish_biomass = unname(unlist(atlantis.meanSizeByAge["Ratfish_biomass"])), 
+
+Ratfish1_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish1_Nums"])), 
+
+Ratfish1_w = unname(unlist(atlantis.meanSizeByAge["Ratfish1"])), 
+
+Ratfish10_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish10_Nums"])), 
+
+Ratfish10_w = unname(unlist(atlantis.meanSizeByAge["Ratfish10"])), 
+
+Ratfish2_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish2_Nums"])), 
+
+Ratfish2_w = unname(unlist(atlantis.meanSizeByAge["Ratfish2"])), 
+
+Ratfish3_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish3_Nums"])), 
+
+Ratfish3_w = unname(unlist(atlantis.meanSizeByAge["Ratfish3"])), 
+
+Ratfish4_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish4_Nums"])), 
+
+Ratfish4_w = unname(unlist(atlantis.meanSizeByAge["Ratfish4"])), 
+
+Ratfish5_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish5_Nums"])), 
+
+Ratfish5_w = unname(unlist(atlantis.meanSizeByAge["Ratfish5"])), 
+
+Ratfish6_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish6_Nums"])), 
+
+Ratfish6_w = unname(unlist(atlantis.meanSizeByAge["Ratfish6"])), 
+
+Ratfish7_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish7_Nums"])), 
+
+Ratfish7_w = unname(unlist(atlantis.meanSizeByAge["Ratfish7"])), 
+
+Ratfish8_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish8_Nums"])), 
+
+Ratfish8_w = unname(unlist(atlantis.meanSizeByAge["Ratfish8"])), 
+
+Ratfish9_Nums = unname(unlist(atlantis.meanSizeByAge["Ratfish9_Nums"])), 
+
+Ratfish9_w = unname(unlist(atlantis.meanSizeByAge["Ratfish9"])), 
+
+Res_Orca_biomass = unname(unlist(atlantis.meanSizeByAge["Res_Orca_biomass"])), 
+
+Res_Orca1_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca1_Nums"])), 
+
+Res_Orca1_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca1"])), 
+
+Res_Orca10_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca10_Nums"])), 
+
+Res_Orca10_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca10"])), 
+
+Res_Orca2_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca2_Nums"])), 
+
+Res_Orca2_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca2"])), 
+
+Res_Orca3_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca3_Nums"])), 
+
+Res_Orca3_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca3"])), 
+
+Res_Orca4_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca4_Nums"])), 
+
+Res_Orca4_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca4"])), 
+
+Res_Orca5_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca5_Nums"])), 
+
+Res_Orca5_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca5"])), 
+
+Res_Orca6_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca6_Nums"])), 
+
+Res_Orca6_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca6"])), 
+
+Res_Orca7_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca7_Nums"])), 
+
+Res_Orca7_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca7"])), 
+
+Res_Orca8_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca8_Nums"])), 
+
+Res_Orca8_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca8"])), 
+
+Res_Orca9_Nums = unname(unlist(atlantis.meanSizeByAge["Res_Orca9_Nums"])), 
+
+Res_Orca9_w = unname(unlist(atlantis.meanSizeByAge["Res_Orca9"])), 
+
+Seagrass_biomass = unname(unlist(atlantis.meanSizeByAge["Seagrass_biomass"])), 
+
+Sed_Bact_biomass = unname(unlist(atlantis.meanSizeByAge["Sed_Bact_biomass"])), 
+
+SGeorgia_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish_biomass"])), 
+
+SGeorgia_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish1_Nums"])), 
+
+SGeorgia_Fish1_w = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish1"])), 
+
+SGeorgia_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish2_Nums"])), 
+
+SGeorgia_Fish2_w = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish2"])), 
+
+SGeorgia_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish3_Nums"])), 
+
+SGeorgia_Fish3_w = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish3"])), 
+
+SGeorgia_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish4_Nums"])), 
+
+SGeorgia_Fish4_w = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish4"])), 
+
+SGeorgia_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish5_Nums"])), 
+
+SGeorgia_Fish5_w = unname(unlist(atlantis.meanSizeByAge["SGeorgia_Fish5"])), 
+
+Shrimp_biomass = unname(unlist(atlantis.meanSizeByAge["Shrimp_biomass"])), 
+
+Sixgill_Shark_biomass = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark_biomass"])), 
+
+Sixgill_Shark1_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark1_Nums"])), 
+
+Sixgill_Shark1_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark1"])), 
+
+Sixgill_Shark10_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark10_Nums"])), 
+
+Sixgill_Shark10_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark10"])), 
+
+Sixgill_Shark2_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark2_Nums"])), 
+
+Sixgill_Shark2_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark2"])), 
+
+Sixgill_Shark3_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark3_Nums"])), 
+
+Sixgill_Shark3_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark3"])), 
+
+Sixgill_Shark4_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark4_Nums"])), 
+
+Sixgill_Shark4_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark4"])), 
+
+Sixgill_Shark5_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark5_Nums"])), 
+
+Sixgill_Shark5_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark5"])), 
+
+Sixgill_Shark6_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark6_Nums"])), 
+
+Sixgill_Shark6_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark6"])), 
+
+Sixgill_Shark7_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark7_Nums"])), 
+
+Sixgill_Shark7_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark7"])), 
+
+Sixgill_Shark8_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark8_Nums"])), 
+
+Sixgill_Shark8_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark8"])), 
+
+Sixgill_Shark9_Nums = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark9_Nums"])), 
+
+Sixgill_Shark9_w = unname(unlist(atlantis.meanSizeByAge["Sixgill_Shark9"])), 
+
+SkateRay_biomass = unname(unlist(atlantis.meanSizeByAge["SkateRay_biomass"])), 
+
+SkateRay1_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay1_Nums"])), 
+
+SkateRay1_w = unname(unlist(atlantis.meanSizeByAge["SkateRay1"])), 
+
+SkateRay10_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay10_Nums"])), 
+
+SkateRay10_w = unname(unlist(atlantis.meanSizeByAge["SkateRay10"])), 
+
+SkateRay2_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay2_Nums"])), 
+
+SkateRay2_w = unname(unlist(atlantis.meanSizeByAge["SkateRay2"])), 
+
+SkateRay3_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay3_Nums"])), 
+
+SkateRay3_w = unname(unlist(atlantis.meanSizeByAge["SkateRay3"])), 
+
+SkateRay4_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay4_Nums"])), 
+
+SkateRay4_w = unname(unlist(atlantis.meanSizeByAge["SkateRay4"])), 
+
+SkateRay5_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay5_Nums"])), 
+
+SkateRay5_w = unname(unlist(atlantis.meanSizeByAge["SkateRay5"])), 
+
+SkateRay6_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay6_Nums"])), 
+
+SkateRay6_w = unname(unlist(atlantis.meanSizeByAge["SkateRay6"])), 
+
+SkateRay7_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay7_Nums"])), 
+
+SkateRay7_w = unname(unlist(atlantis.meanSizeByAge["SkateRay7"])), 
+
+SkateRay8_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay8_Nums"])), 
+
+SkateRay8_w = unname(unlist(atlantis.meanSizeByAge["SkateRay8"])), 
+
+SkateRay9_Nums = unname(unlist(atlantis.meanSizeByAge["SkateRay9_Nums"])), 
+
+SkateRay9_w = unname(unlist(atlantis.meanSizeByAge["SkateRay9"])), 
+
+Sm_Plank_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish_biomass"])), 
+
+Sm_Plank_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish1_Nums"])), 
+
+Sm_Plank_Fish1_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish1"])), 
+
+Sm_Plank_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish2_Nums"])), 
+
+Sm_Plank_Fish2_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish2"])), 
+
+Sm_Plank_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish3_Nums"])), 
+
+Sm_Plank_Fish3_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish3"])), 
+
+Sm_Plank_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish4_Nums"])), 
+
+Sm_Plank_Fish4_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish4"])), 
+
+Sm_Plank_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish5_Nums"])), 
+
+Sm_Plank_Fish5_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish5"])), 
+
+Sm_Plank_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish6_Nums"])), 
+
+Sm_Plank_Fish6_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish6"])), 
+
+Sm_Plank_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish7_Nums"])), 
+
+Sm_Plank_Fish7_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish7"])), 
+
+Sm_Plank_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish8_Nums"])), 
+
+Sm_Plank_Fish8_w = unname(unlist(atlantis.meanSizeByAge["Sm_Plank_Fish8"])), 
+
+SmDem_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish_biomass"])), 
+
+SmDem_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish1_Nums"])), 
+
+SmDem_Fish1_w = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish1"])), 
+
+SmDem_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish2_Nums"])), 
+
+SmDem_Fish2_w = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish2"])), 
+
+SmDem_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish3_Nums"])), 
+
+SmDem_Fish3_w = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish3"])), 
+
+SmDem_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish4_Nums"])), 
+
+SmDem_Fish4_w = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish4"])), 
+
+SmDem_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish5_Nums"])), 
+
+SmDem_Fish5_w = unname(unlist(atlantis.meanSizeByAge["SmDem_Fish5"])), 
+
+SmFlat_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish_biomass"])), 
+
+SmFlat_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish1_Nums"])), 
+
+SmFlat_Fish1_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish1"])), 
+
+SmFlat_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish10_Nums"])), 
+
+SmFlat_Fish10_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish10"])), 
+
+SmFlat_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish2_Nums"])), 
+
+SmFlat_Fish2_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish2"])), 
+
+SmFlat_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish3_Nums"])), 
+
+SmFlat_Fish3_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish3"])), 
+
+SmFlat_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish4_Nums"])), 
+
+SmFlat_Fish4_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish4"])), 
+
+SmFlat_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish5_Nums"])), 
+
+SmFlat_Fish5_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish5"])), 
+
+SmFlat_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish6_Nums"])), 
+
+SmFlat_Fish6_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish6"])), 
+
+SmFlat_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish7_Nums"])), 
+
+SmFlat_Fish7_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish7"])), 
+
+SmFlat_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish8_Nums"])), 
+
+SmFlat_Fish8_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish8"])), 
+
+SmFlat_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish9_Nums"])), 
+
+SmFlat_Fish9_w = unname(unlist(atlantis.meanSizeByAge["SmFlat_Fish9"])), 
+
+Spinydog_Fish_biomass = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish_biomass"])), 
+
+Spinydog_Fish1_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish1_Nums"])), 
+
+Spinydog_Fish1_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish1"])), 
+
+Spinydog_Fish10_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish10_Nums"])), 
+
+Spinydog_Fish10_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish10"])), 
+
+Spinydog_Fish2_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish2_Nums"])), 
+
+Spinydog_Fish2_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish2"])), 
+
+Spinydog_Fish3_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish3_Nums"])), 
+
+Spinydog_Fish3_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish3"])), 
+
+Spinydog_Fish4_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish4_Nums"])), 
+
+Spinydog_Fish4_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish4"])), 
+
+Spinydog_Fish5_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish5_Nums"])), 
+
+Spinydog_Fish5_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish5"])), 
+
+Spinydog_Fish6_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish6_Nums"])), 
+
+Spinydog_Fish6_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish6"])), 
+
+Spinydog_Fish7_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish7_Nums"])), 
+
+Spinydog_Fish7_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish7"])), 
+
+Spinydog_Fish8_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish8_Nums"])), 
+
+Spinydog_Fish8_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish8"])), 
+
+Spinydog_Fish9_Nums = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish9_Nums"])), 
+
+Spinydog_Fish9_w = unname(unlist(atlantis.meanSizeByAge["Spinydog_Fish9"])), 
+
+Squid_biomass = unname(unlist(atlantis.meanSizeByAge["Squid_biomass"])), 
+
+Trans_Orca_biomass = unname(unlist(atlantis.meanSizeByAge["Trans_Orca_biomass"])), 
+
+Trans_Orca1_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca1_Nums"])), 
+
+Trans_Orca1_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca1"])), 
+
+Trans_Orca10_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca10_Nums"])), 
+
+Trans_Orca10_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca10"])), 
+
+Trans_Orca2_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca2_Nums"])), 
+
+Trans_Orca2_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca2"])), 
+
+Trans_Orca3_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca3_Nums"])), 
+
+Trans_Orca3_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca3"])), 
+
+Trans_Orca4_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca4_Nums"])), 
+
+Trans_Orca4_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca4"])), 
+
+Trans_Orca5_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca5_Nums"])), 
+
+Trans_Orca5_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca5"])), 
+
+Trans_Orca6_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca6_Nums"])), 
+
+Trans_Orca6_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca6"])), 
+
+Trans_Orca7_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca7_Nums"])), 
+
+Trans_Orca7_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca7"])), 
+
+Trans_Orca8_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca8_Nums"])), 
+
+Trans_Orca8_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca8"])), 
+
+Trans_Orca9_Nums = unname(unlist(atlantis.meanSizeByAge["Trans_Orca9_Nums"])), 
+
+Trans_Orca9_w = unname(unlist(atlantis.meanSizeByAge["Trans_Orca9"])), 
+
